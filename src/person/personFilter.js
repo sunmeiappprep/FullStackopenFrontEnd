@@ -5,6 +5,8 @@ const PersonFilter = ({persons}) => {
 
     const [Search,setSearch] = useState("")
 
+    //Making a new array with only filter people 
+    //to pass it on to the display component
     const filterArry = persons.filter(person => 
         person.name.toLowerCase().includes(Search.toLowerCase())
         )
