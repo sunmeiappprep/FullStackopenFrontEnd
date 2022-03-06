@@ -1,18 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PersonDisplay from "./personDisplay";
 import PersonForm from "./personForm";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import PersonFilter from "./personFilter";
+import axios from "axios";
 const PersonMain = () => {
-    const [persons, setPersons] = useState([
-        { name: 'Arto Hellas', number: '040-123456', id: 1 },
-        { name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
-        { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
-        { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 }
-      ])
+    
 
+    const [persons, setPersons] = useState([])
+    const [count, setCount] = useState(0)
+
+
+    // const promise = axios.get('http://localhost:3001/persons')
+    const hook = () => {
+        //Effect logic block
+        setCount(count+1)
+
+        //axios returns a promise a promise has a .then with a response, 
+        //that respon has data
+        axios
+          .get('http://localhost:3001/persons')
+          .then(response => {
+            console.log('promise fulfilled')
+            setPersons(response.data)
+          })
+      }
+
+    useEffect(hook, [])
+    // promise.then(res => setPersons(res.data))
     return(
         <div>
+            {count}
             <PersonForm setPersons={setPersons} persons={persons}/>
             <PersonDisplay persons={persons}/>
             <PersonFilter persons={persons}/>
