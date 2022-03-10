@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import MovieDisplay from "./movieDisplay";
 import MovieSearch from "./movieSearch";
+
 const MovieMain = () => {
     const [movies,setMovies] = useState([])
     const [movieSearch,setmovieSearch] = useState("")
@@ -13,7 +14,8 @@ const MovieMain = () => {
         url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
         params: {title: movieSearch, order_by: 'rating', limit: '25'},
         headers: {
-
+            'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
+            'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
         }
       };
       

@@ -98,21 +98,21 @@
 
 // }
 //   console.log(tree)
-var axios = require("axios").default;
+// var axios = require("axios").default;
 
-var options = {
-  method: 'GET',
-  url: 'https://mdblist.p.rapidapi.com/',
-  params: {s: 'jaws'},
-  headers: {
-    'x-rapidapi-host': 'mdblist.p.rapidapi.com',
-    'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
-  }
-};
+// var options = {
+//   method: 'GET',
+//   url: 'https://mdblist.p.rapidapi.com/',
+//   params: {s: 'jaws'},
+//   headers: {
+//     'x-rapidapi-host': 'mdblist.p.rapidapi.com',
+//     'x-rapidapi-key': process.env.REACT_KEY
+//   }
+// };
 
-axios.request(options).then(function (response) {
-	console.log(response.data.search);
-}).catch(function (error) {
-	console.error(error);
-});
+// axios.request(options).then(function (response) {
+// 	console.log(response.data.search);
+// }).catch(function (error) {
+// 	console.error(error);
+// });
 
