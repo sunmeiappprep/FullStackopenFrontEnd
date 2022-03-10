@@ -70,31 +70,49 @@
 
 // console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]))
 
-class BST {
-    constructor(value) {
-      this.value = value;
-      this.left = null;
-      this.right = null;
-    }
+// class BST {
+//     constructor(value) {
+//       this.value = value;
+//       this.left = null;
+//       this.right = null;
+//     }
+//   }
+//   let nodes = [
+//     {"id": "10", "left": "5", "right": "15", "value": 10},
+//     {"id": "15", "left": "13", "right": "22", "value": 15},
+//     {"id": "22", "left": null, "right": null, "value": 22},
+//     {"id": "13", "left": null, "right": "14", "value": 13},
+//     {"id": "14", "left": null, "right": null, "value": 14},
+//     {"id": "5", "left": "2", "right": "5-2", "value": 5},
+//     {"id": "5-2", "left": null, "right": null, "value": 5},
+//     {"id": "2", "left": "1", "right": null, "value": 2},
+//     {"id": "1", "left": null, "right": null, "value": 1}
+//   ]
+
+// let tree = new BST (nodes[0])
+// let tree1 = new BST (nodes[1])
+// if (tree.left || tree.right){
+//     console.log(tree)
+//     console.log(tree.left)
+//     console.log(tree.right)
+
+// }
+//   console.log(tree)
+var axios = require("axios").default;
+
+var options = {
+  method: 'GET',
+  url: 'https://mdblist.p.rapidapi.com/',
+  params: {s: 'jaws'},
+  headers: {
+    'x-rapidapi-host': 'mdblist.p.rapidapi.com',
+    'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
   }
-  let nodes = [
-    {"id": "10", "left": "5", "right": "15", "value": 10},
-    {"id": "15", "left": "13", "right": "22", "value": 15},
-    {"id": "22", "left": null, "right": null, "value": 22},
-    {"id": "13", "left": null, "right": "14", "value": 13},
-    {"id": "14", "left": null, "right": null, "value": 14},
-    {"id": "5", "left": "2", "right": "5-2", "value": 5},
-    {"id": "5-2", "left": null, "right": null, "value": 5},
-    {"id": "2", "left": "1", "right": null, "value": 2},
-    {"id": "1", "left": null, "right": null, "value": 1}
-  ]
+};
 
-let tree = new BST (nodes[0])
-let tree1 = new BST (nodes[1])
-if (tree.left || tree.right){
-    console.log(tree)
-    console.log(tree.left)
-    console.log(tree.right)
+axios.request(options).then(function (response) {
+	console.log(response.data.search);
+}).catch(function (error) {
+	console.error(error);
+});
 
-}
-  console.log(tree)
