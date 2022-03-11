@@ -19,10 +19,12 @@ function MovieDisplay({movie}) {
             "title_date": "2015-04-14"
         }
         // console.log(movie.rating)
-    let hasImgAndWithInLastdecade = movie.img && movie.year > 2010
+    let hasImg = movie.img
+    // let hasPoster = movie.poster
+
   return (
-    <div >
-        {hasImgAndWithInLastdecade && <img src={movie.img} width={150}/>}
+    <div className={"singleMovie"}>
+        {hasImg && <img src={movie.img} width={150}/>}
     </div>
   )
 }

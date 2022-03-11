@@ -1,4 +1,17 @@
 .movieDisplay{
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: space-around */
 }
+
+.movieDisplay > div{
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 1rem; */
+    flex-basis: 20%;
+    justify-content: center
+    /* width: 200px; */
+}
+
+/* .singleMovie{
+} */

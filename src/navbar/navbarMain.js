@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/navbar.css'; 
 import NetflixLogo from '../images/netflix';
+import MovieMain from '../movie/movieSearch';
 const NavbarMain = ({classStyle}) => {
   return (
     <div className={classStyle}>

@@ -1,7 +1,7 @@
 .unscrolledNavBar{
     display: flex;
     justify-content: space-between;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     flex-wrap: nowrap;
     /* background-color: black; */
     background-image: linear-gradient(rgb(20, 20, 20), transparent);
@@ -13,7 +13,7 @@
     left: 0;
     right: 0;
     padding: 10px;
-    height: 4rem;
+    height: 5rem;
     font-family: 'Netflix Sans';
     color: #fff;
     font-weight: 500;
@@ -24,8 +24,8 @@
     justify-content: space-between;
     font-size: 1.25rem;
     flex-wrap: nowrap;
-    background-color: black;
-    /* background-image: linear-gradient(rgb(20, 20, 20), transparent); */
+    /* background-color: black; */
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(22, 22, 22));
     /* position: relative; */
     z-index: 1;
     margin: 0;
@@ -34,7 +34,7 @@
     left: 0;
     right: 0;
     padding: 10px;
-    height: 4rem;
+    height: 5rem;
     font-family: 'Netflix Sans';
     color: #fff;
     font-weight: 500;
@@ -61,12 +61,12 @@
 }
 
 .netflixLogo{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     /* gap: 10px; */
 }
 
 #Netflixlogoid{
-    gap: 2rem;
+    gap: 3rem;
 	padding-right: 2rem;
 
 }

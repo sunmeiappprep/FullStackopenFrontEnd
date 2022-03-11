@@ -397,16 +397,16 @@ const MovieMain = () => {
       };
       
       axios.request(options).then(function (response) {
-              console.log(response.data.results);
-              setMovies(response.data.results)
+              console.log(response.data.results.filter(movie => movie.img));
+              setMovies(response.data.results.filter(movie => movie.img))
       }).catch(function (error) {
           console.error(error);
       });
     }
 
     // let extraImg = (movies.map(movie => movie.netflix_id))
-
-
+    let moviesWithPictureOnly = (movies.filter(movie => !movie.img))
+    console.log(moviesWithPictureOnly)
     
     return (
         <div>
