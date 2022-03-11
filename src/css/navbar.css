@@ -1,0 +1,52 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    flex-wrap: nowrap;
+    background-color: black;
+    /* position: relative; */
+    z-index: 1;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    height: 4rem;
+    font-family: 'Netflix Sans';
+    color: #fff;
+    font-weight: 500;
+    /* box-shadow: 30px -30px 30px rgba(46, 45, 45, 0.75); */
+    /* background-image: linear-gradient(red, yellow); */
+    /* padding: 0; */
+}
+.navBarleft{
+    display: flex;
+    gap: 1.2rem;
+    /* background-color: red; */
+
+    align-items: center;
+    padding-left: 3rem;
+
+}
+.navBarleft > div:hover{
+    color: gray;
+}
+
+.navBarright{
+    gap: 1.2rem;
+    display: flex;
+    align-items: center;
+    /* background-color: blue; */
+}
+
+.netflixLogo{
+    font-size: 1.2rem;
+    /* gap: 10px; */
+}
+
+#Netflixlogoid{
+    gap: 2rem;
+	padding-right: 2rem;
+
+}
