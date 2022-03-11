@@ -1,9 +1,10 @@
-.navBar{
+.unscrolledNavBar{
     display: flex;
     justify-content: space-between;
     font-size: 1.25rem;
     flex-wrap: nowrap;
-    background-color: black;
+    /* background-color: black; */
+    background-image: linear-gradient(rgb(20, 20, 20), transparent);
     /* position: relative; */
     z-index: 1;
     margin: 0;
@@ -16,10 +17,29 @@
     font-family: 'Netflix Sans';
     color: #fff;
     font-weight: 500;
-    /* box-shadow: 30px -30px 30px rgba(46, 45, 45, 0.75); */
-    /* background-image: linear-gradient(red, yellow); */
-    /* padding: 0; */
 }
+
+.navBarScrolled{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    flex-wrap: nowrap;
+    background-color: black;
+    /* background-image: linear-gradient(rgb(20, 20, 20), transparent); */
+    /* position: relative; */
+    z-index: 1;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    height: 4rem;
+    font-family: 'Netflix Sans';
+    color: #fff;
+    font-weight: 500;
+}
+
 .navBarleft{
     display: flex;
     gap: 1.2rem;

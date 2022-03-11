@@ -1,9 +1,9 @@
 import React from 'react'
 import '../css/navbar.css'; 
 import NetflixLogo from '../images/netflix';
-const NavbarMain = () => {
+const NavbarMain = ({classStyle}) => {
   return (
-    <div className='navBar'>
+    <div className={classStyle}>
         <div className='navBarleft'>
             <div id='Netflixlogoid'><NetflixLogo/></div>
             <div>Home</div>
