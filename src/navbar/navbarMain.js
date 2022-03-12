@@ -9,6 +9,7 @@ import { useState } from 'react';
 const NavbarMain = ({classStyle}) => {
   const [searchTerm,setSearchTerm] = useState("")
   const dispatch = useDispatch()
+  // const apiCalled = useSelector()
   // dispatch(NEWSUBMIT())
   // useDispatch()(NEWSUBMIT())
   const handleSubmitTerm = (e) => {

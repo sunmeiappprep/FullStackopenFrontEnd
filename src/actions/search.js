@@ -8,3 +8,4 @@ export const NEWSUBMIT = (searchTerm) => {
         data: searchTerm
     }
 }
+

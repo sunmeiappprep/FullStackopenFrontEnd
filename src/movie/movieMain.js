@@ -5,6 +5,7 @@ import MovieSearch from "./movieSearch";
 import '../css/moviesDisplay.css'; 
 import { useSelector,useDispatch } from "react-redux";
 import { UPDATEMOVIELIST } from "../actions/movielist";
+import { APIADD } from "../actions/apicallcounter";
 const MovieMain = () => {
     const dark = [
         {
@@ -1522,7 +1523,7 @@ const MovieMain = () => {
             'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
         }
       };
-      
+      dispatch(APIADD())
       axios.request(options).then(function (response) {
               console.log(response.data.results.filter(movie => movie.img));
               setMovies(response.data.results.filter(movie => movie.img))

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch,useSelector } from "react-redux";
+import { APIADD } from "../actions/apicallcounter";
 const MovieImage = ({netflix_id,title,synopsis,poster}) => {
 
     const [images,setImages] = useState([])
     const [dimension,setDimension] = useState([])
+    const counter = useSelector(state => state.counter)
+    const dispatch = useDispatch()
     useEffect(() => {
         var options = {
             method: 'GET',
@@ -14,44 +18,54 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
               'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
             }
           };
-          
+          dispatch(APIADD())
+
           axios.request(options).then(function (response) {
               console.log(response.data.results);
               setImages(response.data.results)
           }).catch(function (error) {
               console.error(error);
           });
-        //   wideImagine().then(res => console.log(...res))
       }, []); // Only re-run the effect if count changes
 
-      const getMeta = (url) => {   
+
+    //this onload seems to be an event listener and is async
+    const getMeta = (url) => {   
         var img = new Image();
         img.onload = function() {
             console.log( this.width +" "+ this.height );
-            return [this.width,this.height]
+            if(this.width> 1000){
+                console.log(this.width,"has pass")
+                setDimension(prevArray => [...prevArray, url])
+                // console.log(url)
+
+            }
         };
         img.src = url;
     }
 
-    async function wideImagine () {
-         const result = await images.map(image =>  getMeta(image.url))
-        return result
-    } 
-    console.log(dimension)
+    //So everytime images changes this will update setDimension
+    useEffect(() => {
+        images.forEach(image => getMeta(image.url))
+    },[images]) 
     return(
         <div>
-            testing
+            {counter}
             {/* <img src={poster}/>
             {title}
             {synopsis} */}
-            {
-                images && images.map(image =>
-                    <div>
-                        {(image.image_type)}
-                        <img src={image.url}/>
-                    </div>
-                    )
-            }
+            <div className="arrayOfImagesContainer">
+                {
+                    dimension && dimension.map(image =>
+                        <div className="arrayOfImages">
+                        {
+                            <img src={image}></img>
+                        }
+                        </div>
+                        )
+                }
+            </div>
+
         </div>
     )
 }
