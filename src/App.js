@@ -6,11 +6,12 @@ import MovieMain from './movie/movieMain'
 import NavbarMain from './navbar/navbarMain'
 import './css/app.css'; 
 import './css/fonts.css'; 
+
 const App = () => {
+  
 
   const [y, setY] = useState(window.scrollY);
   const [nav, setNav] = useState(<div><NavbarMain classStyle={'unscrolledNavBar'}/></div>);
-  const [prevnav, setprevNav] = useState(nav);
 
   // console.log(nav.props.children.props.classStyle)
 // 

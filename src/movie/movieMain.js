@@ -3,6 +3,7 @@ import axios from "axios";
 import MovieDisplay from "./movieDisplay";
 import MovieSearch from "./movieSearch";
 import '../css/moviesDisplay.css'; 
+import { useSelector } from "react-redux";
 
 const MovieMain = () => {
     const dark = [
@@ -382,14 +383,16 @@ const MovieMain = () => {
             "title_date": "2021-06-11"
         }
     ]
+    const searchTerm = useSelector(state => state.search)
     const [movies,setMovies] = useState(dark)
     const [movieSearch,setmovieSearch] = useState("")
-    const handleOnSubmit = () => {
     
+
+    const handleOnSubmit = () => {
     var options = {
         method: 'GET',
         url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
-        params: {title: movieSearch, order_by: 'rating', limit: '25'},
+        params: {title: searchTerm, order_by: 'rating', limit: '25'},
         headers: {
             'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
             'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
@@ -403,6 +406,10 @@ const MovieMain = () => {
           console.error(error);
       });
     }
+
+    useEffect(() => {
+        handleOnSubmit()
+      }, [searchTerm]); // Only re-run the effect if count changes
 
     // let extraImg = (movies.map(movie => movie.netflix_id))
     let moviesWithPictureOnly = (movies.filter(movie => !movie.img))
