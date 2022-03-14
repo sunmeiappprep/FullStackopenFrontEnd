@@ -26,34 +26,52 @@ function MovieDisplay({movie}) {
         // console.log(movie.rating)
     let hasImg = movie.img
     let hasPoster = movie.poster
-
+    Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
+    // console.log(Modal.defaultStyles.overlay.backgroundColor )
   return (
     <div >
         {hasImg && <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/>}
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={() => setModalIsOpen(false)}
-          style = {
-            {
-              overlay: {
-                backgroundColor:"black"
-              },
-              content: {
-                color:'green',
-                backgroundColor:'gray'
+        <div >
+            <Modal 
+              
+              isOpen={modalIsOpen}
+              onRequestClose={() => setModalIsOpen(false)}
+              shouldFocusAfterRender={true}
+              style = {
+              
+                {
+                  overlay: {
+                    backgroundColor:"black",
+                    // width:"100vw",
+                    // height:"50vh",
+                    // top: "25%",
+
+                  },
+                  // content: {
+                  //   boxSizing:"borderBox",
+                  //   width:"50vw",
+                  //   // color:'green',
+                  //   left: "25%",
+                  //   // top: "25%",
+                  //   // backgroundColor:'black',
+                  //   border:"none",
+                  //   overflow: "hidden",
+                  //   overflowY: "scroll",
+                  // }
+                }
               }
-            }
-          }
-        >
-          <MovieImage netflix_id={movie.netflix_id} 
-          title={movie.title}
-          synopsis={movie.synopsis}
-          poster={movie.img}/>
-          <h1>asd</h1>
-          <h2>asd</h2>
-          <h3>asd</h3>
-          <h4>asd</h4>
-        </Modal>
+            >
+              <MovieImage netflix_id={movie.netflix_id} 
+              title={movie.title}
+              synopsis={movie.synopsis}
+              poster={movie.img}/>
+              <h1>asd</h1>
+              <h2>asd</h2>
+              <h3>asd</h3>
+              <h4>asd</h4>
+            </Modal>
+        </div>
+        
         {/* <Modal/> */}
     </div>
   )

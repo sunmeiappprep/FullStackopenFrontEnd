@@ -22,7 +22,7 @@ h1{
 }
 
 .arrayOfImages > img{
-    width: 50vw;
+    max-width: 50vw;
     /* align-items: center; */
 }
 
@@ -31,4 +31,50 @@ h1{
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
+}
+
+/* .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+
+} */
+
+.ReactModal__Overlay--after-open{
+    background-color: rgba(0, 0, 0, 0.6)!important;
+    /* overflow:hidden !important */
+}
+
+.ReactModal__Content--after-open{
+    border-radius: 30px !important;
+    background-color: black !important;
+    width: 50vw !important;
+    top: 20% !important;
+    left: 25% !important;
+    box-sizing: border-box !important;
+    overflow:hidden !important;
+    overflow-y: scroll !important;
+    /* display:none */
+}
+
+/* ::-webkit-scrollbar{ */
+    /* display:none */
+/* } */
+
+.ReactModal__Content--after-open::-webkit-scrollbar {
+    background: transparent; /* Chrome/Safari/Webkit */
+    width: 0px;
+}
+
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+  overflow: hidden;
 }

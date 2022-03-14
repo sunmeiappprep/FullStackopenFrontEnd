@@ -70,3 +70,39 @@
 	padding-right: 2rem;
 
 }
+
+
+  .searchBarContainer{
+    display: flex;
+    height: 20px;
+
+  }
+
+  .searchBar:focus {
+    width: 100%;
+  }
+
+  .searchBar {
+    /* border-color: #fff; */
+    padding: 0px 0px;
+    margin: 0px 0;
+    width: 0px;
+    height: 2.5rem;
+    background: black;
+    color:white;
+    transition: width 1s;
+    box-sizing: border-box;
+    align-items: center;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    /* border-bottom-style: groove; */
+  }
+
+  .searchIcon:hover{
+    cursor: pointer;
+  }
+
+  .notSelectable {
+    user-select: none
+}

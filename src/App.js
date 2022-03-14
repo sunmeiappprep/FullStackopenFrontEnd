@@ -43,9 +43,9 @@ const App = () => {
     //So I assume everytime the function runs it will trigger the useEffect
     //if it was set it would rerender every second
     //this time it only rerender if scrolled
+    //the second call back removes the listener
     setY(window.scrollY);
     window.addEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
-
     return () => {
       window.removeEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
     };

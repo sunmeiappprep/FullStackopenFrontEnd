@@ -21,7 +21,7 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
           dispatch(APIADD())
 
           axios.request(options).then(function (response) {
-              console.log(response.data.results);
+            //   console.log(response.data.results);
               setImages(response.data.results)
           }).catch(function (error) {
               console.error(error);
@@ -33,9 +33,9 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
     const getMeta = (url) => {   
         var img = new Image();
         img.onload = function() {
-            console.log( this.width +" "+ this.height );
+            // console.log( this.width +" "+ this.height );
             if(this.width> 1000){
-                console.log(this.width,"has pass")
+                // console.log(this.width,"has pass")
                 setDimension(prevArray => [...prevArray, url])
                 // console.log(url)
 
