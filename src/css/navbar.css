@@ -1,43 +1,51 @@
+*{
+    user-select: none
+
+}
+
 .unscrolledNavBar{
     display: flex;
     justify-content: space-between;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    font-size: 14px;
     flex-wrap: nowrap;
     /* background-color: black; */
     background-image: linear-gradient(rgb(20, 20, 20), transparent);
     /* position: relative; */
-    z-index: 1;
+    z-index: 2;
     margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 10px;
-    height: 5rem;
+    padding: 0px;
+    height: 68px;
     font-family: 'Netflix Sans';
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .navBarScrolled{
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
+    font-size: 14px;
+
     flex-wrap: nowrap;
     /* background-color: black; */
     background-image: linear-gradient(rgb(0, 0, 0), rgb(22, 22, 22));
     /* position: relative; */
-    z-index: 1;
+    z-index: 2;
     margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 10px;
-    height: 5rem;
+    padding: 0px;
+    height: 68px;
     font-family: 'Netflix Sans';
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .navBarleft{
@@ -61,7 +69,7 @@
 }
 
 .netflixLogo{
-    font-size: 1.5rem;
+    font-size: 1.2rem ;
     /* gap: 10px; */
 }
 
@@ -83,7 +91,6 @@
   }
 
   .searchBar {
-    /* border-color: #fff; */
     padding: 0px 0px;
     margin: 0px 0;
     width: 0px;
@@ -96,13 +103,26 @@
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
-    /* border-bottom-style: groove; */
+    
   }
 
   .searchIcon:hover{
     cursor: pointer;
   }
 
+  .searchBarContainer{
+    user-select: none
+  }
+
   .notSelectable {
     user-select: none
+}
+
+.selectDropDown{
+    color:white;
+    font-size: 1.25rem;
+    background-color: black;
+    opacity: 1;
+    user-select: none;
+    font-weight: 600;
 }

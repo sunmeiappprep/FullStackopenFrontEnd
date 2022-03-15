@@ -57,7 +57,7 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
             <div className="arrayOfImagesContainer">
                 {
                     dimension && dimension.map(image =>
-                        <div className="arrayOfImages">
+                        <div key={image} className="arrayOfImages">
                         {
                             <img src={image}></img>
                         }

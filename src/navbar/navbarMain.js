@@ -15,7 +15,7 @@ const NavbarMain = ({classStyle}) => {
   const counter = useSelector(state => state.counter)
   const [searchIsOpen,setSearchIsOpen] = useState(false)
   const searchInput = useRef(null);
-  const searchInputIcon = useRef(null);
+  const searchFormContainer = useRef(null);
   // const apiCalled = useSelector()
   // dispatch(NEWSUBMIT())
   // useDispatch()(NEWSUBMIT())
@@ -38,13 +38,18 @@ const NavbarMain = ({classStyle}) => {
 
   }
 
-
-  function useOutsideAlerter(ref) {
+  //this function use a use effect function and if mousedown is not the form div it will
+  //exit out of the focus and set setSearchIsOpen to false
+  //I assume this will active everytime a click is press dude to the fact
+  //that 1 mouse down event listener is always active
+  //and line 66 will render on ever rerender and event listener is always on if a render
+  //happens
+  const useOutsideAlerter = (ref) => {
     useEffect(() => {
       /**
        * Alert if clicked on outside of element
        */
-      function handleClickOutside(event) {
+      const handleClickOutside = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
           setSearchIsOpen(false)
         }
@@ -55,14 +60,13 @@ const NavbarMain = ({classStyle}) => {
         // Unbind the event listener on clean up
         document.removeEventListener("mousedown", handleClickOutside);
       };
-    }, [ref]);
+    }, []);
   }
   
 
-  // useOutsideAlerter(searchInput)
-  useOutsideAlerter(searchInputIcon)
+  useOutsideAlerter(searchFormContainer)
 
-
+  //I need the ref to trigger the hover to trigger the transition
   return (
     <div className={classStyle}>
         <div className='navBarleft'>
@@ -76,8 +80,8 @@ const NavbarMain = ({classStyle}) => {
         <div className='navBarright'>
               <div > 
 
-                  <form  ref={searchInputIcon} className='searchBarContainer' onSubmit={handleSubmitTerm}>
-                  <img className='searchIcon' onClick={handleOnClick}  src={searchIcon}></img>
+                  <form  ref={searchFormContainer} className='searchBarContainer' onSubmit={handleSubmitTerm}>
+                  <img  className='searchIcon' onClick={handleOnClick}  src={searchIcon}></img>
 
                   <input className='searchBar'
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -88,15 +92,6 @@ const NavbarMain = ({classStyle}) => {
 
                 </form>
               </div>
-   
-            {/* <button >Search</button> */}
-            {/* <CSSTransitionGroup
-              transitionName="example"
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={300}>
-              {items}
-            </CSSTransitionGroup> */}
-
 
             <div className='notSelectable'>DVD</div>
             <div className='notSelectable'>Reminder</div>

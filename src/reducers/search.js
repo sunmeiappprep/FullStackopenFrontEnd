@@ -1,6 +1,6 @@
 //So here comes the NAME of the action the 
 
-const searchReducer = (state = "Test",action) => {
+const searchReducer = (state = "",action) => {
     switch (action.type) {
         case 'NEWSUBMIT':
             return action.data
@@ -10,3 +10,4 @@ const searchReducer = (state = "Test",action) => {
 }
 
 export default searchReducer
+

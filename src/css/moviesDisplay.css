@@ -78,3 +78,63 @@ h1{
 .ReactModal__Html--open {
   overflow: hidden;
 }
+
+.tableContainer{
+    user-select: none;
+    background-color: black;
+}
+
+.table{
+    /* color:red; */
+    text-align: left;
+    font-size: 1.0rem !important;
+    border-spacing: 5px;
+    border-collapse: separate;
+    user-select: none;
+    font-family: 'Netflix Sans' !important
+}
+td{
+    padding: 1px 20px 1px 10px !important;
+    font-family: 'Netflix Sans' !important;
+    font-size: 1.5rem !important;
+
+}
+
+td:hover{
+    /* background-color: aqua; */
+    /* z-index: 2; */
+    text-decoration: underline;
+
+}
+
+
+.genreSelectionContainer{
+    top: 75px;
+    left: 50px;
+    position: absolute;
+    color:green;
+    z-index: 1;
+    display: flex;
+    /* align-items: center; */
+    width: 1500px;
+    height: 500px;
+    background-color: transparent;
+}
+
+
+.tvShowOrMovie{
+    font-size: 38px;
+    line-height: 38px;
+    font-weight: 700;
+    margin-right: 15px;
+    color:white;
+    /* position: fixed; */
+}
+
+.genreSelection{
+    /* display:none */
+    font-size: 1.5rem;
+    height: 2.5rem;
+    margin-top: 10px;
+    color:white;
+}

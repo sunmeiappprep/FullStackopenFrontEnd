@@ -6,15 +6,39 @@ import MovieMain from './movie/movieMain'
 import NavbarMain from './navbar/navbarMain'
 import './css/app.css'; 
 import './css/fonts.css'; 
-
+import { useSelector,useDispatch } from "react-redux";
+import MovieGenreSelection from './movie/movieGenreSelection'
+import { useRef } from 'react';
+import Tvshow from './tvshow/tvshows'
 const App = () => {
   
 
   const [y, setY] = useState(window.scrollY);
   const [nav, setNav] = useState(<div><NavbarMain classStyle={'unscrolledNavBar'}/></div>);
+  // const dispatch = useDispatch()
+  // const [genreMenuIsOpen,setGenreMenuIsOpen] = useState(false)
+  // const genreDiv = useRef(null);
 
-  // console.log(nav.props.children.props.classStyle)
-// 
+  // const useOutsideAlerter = (ref) => {
+  //   useEffect(() => {
+  //       /**
+  //        * Alert if clicked on outside of element
+  //        */
+  //       const handleClickOutside = (event) => {
+  //       if (ref.current && !ref.current.contains(event.target)) {
+  //           setGenreMenuIsOpen(false)
+  //       }
+  //       }
+  //       // Bind the event listener
+  //       document.addEventListener("mousedown", handleClickOutside);
+  //       return () => {
+  //       // Unbind the event listener on clean up
+  //       document.removeEventListener("mousedown", handleClickOutside);
+  //       };
+  //   }, []);
+  //   }
+
+  //   useOutsideAlerter(genreDiv)
   const renderDifferentNavbarBasedOnScrollY = (e) => {
     //Since there is only two options 
     //I will compare the current classStyle 
@@ -56,8 +80,9 @@ const App = () => {
   return (
     <div>
     {nav}
+    <MovieGenreSelection/>
     <div ><img id='topPic' src={`https://i.imgur.com/awZH1Js.jpeg`}></img></div>
-    <MovieMain/>
+    {/* <MovieMain/>   */}
     </div>
   )
 }

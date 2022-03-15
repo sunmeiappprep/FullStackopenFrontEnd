@@ -33,12 +33,11 @@ const MovieGenre = ({genre}) => {
               {
                   movieGenreMovies
                   ? <div className='movieDisplay'>
-                  {movieGenreMovies.map(movie =>
+                  {movieGenreMovies.map(movie => (
                       <div key={movie.title+movie.netflix_id} >
                           <MovieDisplay movie={movie} />
-                      </div>
-                      )
-                  }
+                      </div>                      
+                    ))}
               </div> 
               :<h1>There are no search result for this genre</h1>
               }
