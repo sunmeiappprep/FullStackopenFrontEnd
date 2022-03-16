@@ -4,7 +4,12 @@ import { useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { TOGGLESOUNDDIV } from '../actions/togglesounddiv'
 import { useEffect } from 'react'
-// import { VolumeUp } from '@material-ui/icons'
+import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
+import VolumeOffSharpIcon from '@material-ui/icons/VolumeOffSharp';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+// import { FileDownload } from "@mui/icons-material";
+// node_modules\@material-ui
+// import FontAwesomeIcon from '@fortawesome/free-solid-svg-icons' 
 const BackgroundFootage = () => {
     
     const handleOnReady = (e) => {
@@ -46,7 +51,15 @@ const BackgroundFootage = () => {
   return (
     // <div ><img id='topPic' src={`https://occ-0-1009-1007.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABRBlV0umeIo-LrjE1tyXQ03SviwnZGvlzDWdzpGn_DL6sB5Zt6AKr7RxSU7tHOg-1w8l72Vwr6BdTE-s5q9GIIAfuCWC.webp?r=2a5`}></img></div>
         <div className='backgroundImageDivContainer'>
-            <div className='soundButton' onClick={(e) => toggleMute(e)}>test</div>
+            <div className='soundButton' onClick={(e) => toggleMute(e)}>
+                {/* <FontAwesomeIcon icon="fa-solid fa-volume-xmark" /> */}
+                {
+                reduxStateSound 
+                    ?<div className='soundIcon'><VolumeOffSharpIcon fontSize='inherit' color='inherit'/></div>
+                    :<div className='soundIcon'><VolumeUpIcon fontSize='inherit' color='inherit'/></div>
+                }
+                
+            </div>
             <div className='youtubePlayerDiv' >
             <ReactPlayer 
             id='topPic' 
