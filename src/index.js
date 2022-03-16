@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import allReducers from './reducers'
-
+import { BrowserRouter } from 'react-router-dom';
 //need to create a store with one combined reducer,
 //the second arg is just for chrome
 const store = createStore(
@@ -16,7 +16,9 @@ const store = createStore(
 // you need a provider to give the state to all your apps
 ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+       <App />
+      </BrowserRouter>
     </Provider>
 ,
   document.getElementById('root')

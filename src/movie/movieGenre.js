@@ -12,7 +12,7 @@ const MovieGenre = ({genre}) => {
         var options = {
             method: 'GET',
             url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
-            params: {genre_list: genre, order_by: 'rating', limit: '5'},
+            params: {genre_list: genre, order_by: 'rating', limit: '10'},
             headers: {
               'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
               'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'

@@ -1,17 +1,19 @@
 #topPic{
     /* Set the height to match that of the viewport. */
-    min-height: 50vh;
+    /* min-height: 50vh; */
 
     /* Set the width to match that of the viewport. */
     width: 100vw;
+	/* height: auto; */
 
     /* Remove any browser-default margins. */
-    margin: 0;
-    position: relative;
-    top: 0px;
-
+    /* margin: 0; */
+    /* position: relative; */
+    /* top: 0px; */
+	/* background-size: cover; */
 
 }
+
 
 #MovieSearch{
 	position: relative;

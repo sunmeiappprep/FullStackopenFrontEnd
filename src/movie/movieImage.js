@@ -46,6 +46,9 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
 
     //So everytime images changes this will update setDimension
     useEffect(() => {
+        if(!images) {
+            return null
+        }
         images.forEach(image => getMeta(image.url))
     },[images]) 
     return(
@@ -56,13 +59,17 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
             {synopsis} */}
             <div className="arrayOfImagesContainer">
                 {
-                    dimension && dimension.map(image =>
+                    dimension.length !== 0 ?
+                    dimension.map(image =>
                         <div key={image} className="arrayOfImages">
                         {
                             <img src={image}></img>
                         }
                         </div>
                         )
+                    :
+                    <img src={'https://i.imgur.com/st2SrKk.jpeg'}></img>
+                    
                 }
             </div>
 

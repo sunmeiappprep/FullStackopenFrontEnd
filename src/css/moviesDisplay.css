@@ -116,7 +116,7 @@ td:hover{
     z-index: 1;
     display: flex;
     /* align-items: center; */
-    width: 1500px;
+    width: 80vw;
     height: 500px;
     background-color: transparent;
 }

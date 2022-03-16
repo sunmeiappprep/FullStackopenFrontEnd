@@ -14,6 +14,8 @@ const NavbarMain = ({classStyle}) => {
   const dispatch = useDispatch()
   const counter = useSelector(state => state.counter)
   const [searchIsOpen,setSearchIsOpen] = useState(false)
+  const [y, setY] = useState(window.scrollY);
+  const [nav, setNav] = useState('unscrolledNavBar');
   const searchInput = useRef(null);
   const searchFormContainer = useRef(null);
   // const apiCalled = useSelector()
@@ -32,7 +34,7 @@ const NavbarMain = ({classStyle}) => {
   }
 
   const handleOnClick = () => {
-    console.log(window)
+    // console.log(window)
     setSearchIsOpen(searchIsOpen => !searchIsOpen)
     // console.log(searchIsOpen)
 
@@ -66,16 +68,66 @@ const NavbarMain = ({classStyle}) => {
 
   useOutsideAlerter(searchFormContainer)
 
+
+
+  
+  //Combine with the useEffect this event listener will set the classname for the nav
+  //if the Y axis is not 0 then it will gray out
+  //the y Axis is only limited to the navbar
+
+  const renderDifferentNavbarBasedOnScrollY = (e) => {
+    //Since there is only two options 
+    //I will compare the current classStyle 
+    //If it doesnt not match then rerender
+    //If it does dont
+
+    let current = nav
+    let scrolled = "navBarScrolled"
+    let unscrolled = "unscrolledNavBar"
+    // console.log(nav)
+    if ((e.currentTarget.scrollY !== 0) && current !== scrolled){
+      setNav('navBarScrolled')
+      // console.log("rerenderScroll")
+    }else if ((e.currentTarget.scrollY === 0 && current !== unscrolled)){
+      setNav('unscrolledNavBar')
+      // console.log("rerenderUnscroll")
+
+    }
+  }
+
+  useEffect(() => {
+    //the window is the browswer it self and we have access already
+    //useEffect Run once and set Y to zero
+    //Then add an event listener that takes in a scroll listen and a function
+    //So I assume everytime the function runs it will trigger the useEffect
+    //if it was set it would rerender every second
+    //this time it only rerender if scrolled
+    //the second call back removes the listener
+    // setY(window.scrollY);
+    // console.log(window.scrollY)
+    window.addEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
+    return () => {
+      window.removeEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
+    };
+  }, [renderDifferentNavbarBasedOnScrollY]);
+
+  const checkIfUrlIsSelf = (slashRoute) => {
+    if (window.location.pathname !== slashRoute){
+      window.location.href = slashRoute;
+    }
+  }
+
   //I need the ref to trigger the hover to trigger the transition
   return (
-    <div className={classStyle}>
+    <div className={nav}>
         <div className='navBarleft'>
             <div id='Netflixlogoid'><NetflixLogo/></div>
-            <div className='notSelectable'>Home</div>
-            <div className='notSelectable'>TV Shows</div>
-            <div className='notSelectable'>Movies</div>
-            <div className='notSelectable'>Popular</div>
-            <div className='notSelectable'>My List</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/`)}>Home</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/tv`)}>TV Shows</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/movies`)}>Movies</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/popular`)}>Popular</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/mylist`)}>My List</div>
+
         </div>
         <div className='navBarright'>
               <div > 
@@ -93,7 +145,7 @@ const NavbarMain = ({classStyle}) => {
                 </form>
               </div>
 
-            <div className='notSelectable'>DVD</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/dvd`)}>DVD</div>
             <div className='notSelectable'>Reminder</div>
             <div className='notSelectable'>Profile</div>
         </div>

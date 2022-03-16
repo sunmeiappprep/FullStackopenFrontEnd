@@ -3,6 +3,18 @@
 
 }
 
+a:visited{
+    color: inherit;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color:gray;
+}
+
 .unscrolledNavBar{
     display: flex;
     justify-content: space-between;
@@ -125,4 +137,30 @@
     opacity: 1;
     user-select: none;
     font-weight: 600;
+}
+
+.soundButton{
+    /* display: flex; */
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 75%;
+    left: 85%;
+    z-index: 2;
+}
+
+.backgroundImageDivContainer{
+    position: relative;
+    height: auto;
+    /* block-size: fit-content */
+    /* min-width: 1280px; */
+    /* min-height: 500px; */
+}
+
+.youtubePlayerDiv{
+	pointer-events: none;
+    /* min-height: 100%; */
+	/* margin-top: 100px; */
+	/* width: 100vw; */
 }
