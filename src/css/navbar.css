@@ -3,6 +3,11 @@
 
 }
 
+body {
+    /* max-width: 100%; */
+    overflow-x: hidden;
+}
+
 a:visited{
     color: inherit;
 }
@@ -67,6 +72,8 @@ a:hover{
 
     align-items: center;
     padding-left: 3rem;
+    animation-name: testing;
+    animation-duration: 5s;
 
 }
 .navBarleft > div:hover{
@@ -99,7 +106,8 @@ a:hover{
   }
 
   .searchBar:focus {
-    width: 100%;
+    width: 160%;
+    border-radius: 0px;
   }
 
   .searchBar {
@@ -115,7 +123,6 @@ a:hover{
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
-    
   }
 
   .searchIcon:hover{
@@ -149,7 +156,7 @@ a:hover{
     position: absolute;
     top: 62%;
     left: 89%;
-    z-index: 2;
+    z-index: 1;
     border:2px solid white;
     border-radius: 50% !important ;
     font-size: 1.6rem;
@@ -175,3 +182,21 @@ a:hover{
 	/* margin-top: 100px; */
 	/* width: 100vw; */
 }
+
+@keyframes testing {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px)
+    }
+
+    80%{
+        transform:translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+

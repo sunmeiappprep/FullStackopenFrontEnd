@@ -3,8 +3,9 @@ import Modal from 'react-modal/lib/components/Modal'
 import { useState } from 'react'
 import MovieSearch from './movieSearch'
 import MovieImage from './movieImage'
+
 Modal.setAppElement('#root')
-function MovieDisplay({movie}) {
+const MovieDisplay = ({movie}) => {
         // movie.primaryImage.url
         // console.log(movie)
         const[modalIsOpen,setModalIsOpen] = useState(false)
@@ -30,7 +31,9 @@ function MovieDisplay({movie}) {
     // console.log(Modal.defaultStyles.overlay.backgroundColor )
   return (
     <div >
-        {hasImg && <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/>}
+        {hasImg && 
+        <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/>}
+        
         <div >
             <Modal 
               

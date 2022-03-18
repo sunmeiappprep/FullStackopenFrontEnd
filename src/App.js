@@ -21,32 +21,6 @@ import Popular from './pages/popular'
 const App = () => {
   
 
-  // const [y, setY] = useState(window.scrollY);
-  // const [nav, setNav] = useState(<div><NavbarMain classStyle={'unscrolledNavBar'}/></div>);
-  // const dispatch = useDispatch()
-  // const [genreMenuIsOpen,setGenreMenuIsOpen] = useState(false)
-  // const genreDiv = useRef(null);
-
-  // const useOutsideAlerter = (ref) => {
-  //   useEffect(() => {
-  //       /**
-  //        * Alert if clicked on outside of element
-  //        */
-  //       const handleClickOutside = (event) => {
-  //       if (ref.current && !ref.current.contains(event.target)) {
-  //           setGenreMenuIsOpen(false)
-  //       }
-  //       }
-  //       // Bind the event listener
-  //       document.addEventListener("mousedown", handleClickOutside);
-  //       return () => {
-  //       // Unbind the event listener on clean up
-  //       document.removeEventListener("mousedown", handleClickOutside);
-  //       };
-  //   }, []);
-  //   }
-
-  //   useOutsideAlerter(genreDiv)
 
 
    
@@ -56,10 +30,7 @@ const App = () => {
 
   return (
     <div>
-    {/* <NavbarMain/>
-    <BackgroundFootage/>
-    <MovieGenreSelection/>
-    <MovieMain/>   */}
+
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/tv" element={<Tvshow />} />
@@ -67,7 +38,8 @@ const App = () => {
       <Route path="/movies" element={<Movies />} />
       <Route path="/mylist" element={<Mylist />} />
       <Route path="/popular" element={<Popular />} />
-      {/* <Route path="invoices" element={<Invoices />} /> */}
+      <Route path="/dvd" element={<Dvd/>} />
+      
     </Routes>
     </div>
   )

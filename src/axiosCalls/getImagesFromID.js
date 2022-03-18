@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
 import { APIADD } from "../actions/apicallcounter";
-const MovieImage = ({netflix_id,title,synopsis,poster}) => {
+import { ADDIMAGEOBJTOREDUXSTATE } from "../actions/addImageToReduxState";
+const GetImagesFromID = ({netflix_id}) => {
+
+    //This comp is for getting the boxart for one movie
+    //Get ID from props
+    //Make and axios call for that id
+    //Set IMAGE state to those imageurl and type
+    //Use the some method to set State for boURL for the first one it gets
+    //If boUrl is null set it to a loading pic
 
     const [images,setImages] = useState([])
-    const [dimension,setDimension] = useState([])
-    const counter = useSelector(state => state.counter)
+    const [boUrl,setboUrl] = useState("")
+    const [counter,setCounter] = useState(0)
     const dispatch = useDispatch()
     useEffect(() => {
         var options = {
@@ -28,15 +36,15 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
           });
       }, []); // Only re-run the effect if count changes
 
-
-    //this onload seems to be an event listener and is async
-    const getMeta = (url,type) => {   
+      const getMeta = (url,type) => {   
         var img = new Image();
         img.onload = function() {
-            // console.log( this.width +" "+ this.height );
-            if(this.width> 1000 && type[1] === "o"){
-                console.log(type)
-                setDimension(prevArray => [...prevArray, url])
+            // console.log(counter)
+
+            if(this.width> 1000 && type[1] === "o" && counter === 0){
+                setboUrl(url)
+                setCounter(prev => prev+1)
+                return true
                 // console.log(url)
 
             }
@@ -50,35 +58,29 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
             return null
         }
         
-        images.forEach(image => {
+        images.find(image => {
             // console.log(image.image_type)
             getMeta(image.url,image.image_type)
-        }
+            }
         )
     },[images]) 
-    return(
-        <div>
-            {counter}
-            {/* <img src={poster}/>
-            {title}
-            {synopsis} */}
-            <div className="arrayOfImagesContainer">
-                {
-                    dimension.length !== 0 ?
-                    dimension.map(image =>
-                        <div key={image} className="arrayOfImages">
-                        {
-                            <img src={image}></img>
-                        }
-                        </div>
-                        )
-                    :
-                    <img src={'https://i.imgur.com/st2SrKk.jpeg'}></img>
-                    
-                }
-            </div>
 
-        </div>
-    )
+    useEffect(() => {
+        if (boUrl !== 'https://i.imgur.com/st2SrKk.jpeg' && counter === 0) {
+            console.log(boUrl)
+            setCounter(prev => prev+1)
+            dispatch(ADDIMAGEOBJTOREDUXSTATE({[netflix_id]:boUrl}))
+        }
+    },[boUrl])
+
+    if(boUrl.length === 0){
+        setboUrl("https://i.imgur.com/st2SrKk.jpeg")
+    }
+  return (
+      <img className="getImagesFromID" src={boUrl}></img>
+  )
 }
-export default MovieImage
+
+export default GetImagesFromID
+
+

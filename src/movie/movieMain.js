@@ -9,6 +9,7 @@ import { APIADD } from "../actions/apicallcounter";
 import MovieGenre from "./movieGenre";
 import MovieGenreSelection from "./movieGenreSelection";
 import { useRef } from 'react';
+import MovieCarousel from './movieCarousel'
 
 const MovieMain = () => {
 
@@ -656,7 +657,9 @@ const MovieMain = () => {
     const search = useSelector(state => state.search)
     const [movies,setMovies] = useState([])
     const dispatch = useDispatch()
-    
+    const absoluteValue = useSelector(state => state.togglesound.height)
+    const typeOfMedia = useSelector(state => state.typeOfMedia)
+
     //this handleonsubmit , 
     // if the search term is inside genrekeysearchvalue we assume that it is a genre
     //so we will axios request with those options for genre
@@ -669,7 +672,7 @@ const MovieMain = () => {
             options = {
                 method: 'GET',
                 url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
-                params: {genre_list: genreKeySearchValue[search], order_by: 'date', limit: '50'},
+                params: {genre_list: genreKeySearchValue[search], order_by: 'rating', limit: '25',type: typeOfMedia},
                 headers: {
                   'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
                   'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
@@ -681,7 +684,7 @@ const MovieMain = () => {
             options = {
                 method: 'GET',
                 url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
-                params: {title: modifedSearch, order_by: 'date', limit: '50'},
+                params: {title: modifedSearch, order_by: 'rating', limit: '15'},
                 headers: {
                     'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
                     'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
@@ -711,24 +714,30 @@ const MovieMain = () => {
     
      
 
-    // let extraImg = (movies.map(movie => movie.netflix_id))
-    // let moviesWithPictureOnly = (movies.filter(movie => !movie.img))
-    // console.log(moviesWithPictureOnly)
-    // console.log()
+
+    console.log(movies)
     return (
         <div>
 
         {/* <MovieGenre genre={10499}/> */}
         {   
         movies 
-            ?<div className='movieDisplay'>
-                {movies.map(movie =>
-                    <div className='notSelectable' key={movie.title+movie.netflix_id} >
-                        <MovieDisplay movie={movie} />
-                    </div>
-                    )
-                }
-            </div> 
+            ?
+            // Why I need this absoluteValue?
+            // cause I need to make the div shrink as the
+            // window shrink
+            <div >
+                {/* <div className='movieDisplay'> */}
+                    <MovieCarousel array={movies}/>
+                    {/* {movies.map(movie =>
+                        <div className='notSelectable' key={movie.title+movie.netflix_id} >
+                            <MovieDisplay movie={movie} />
+                        </div>
+                        )
+                    } */}
+                {/* </div>  */}
+            </div>
+
             :<h1>There are no search result for this movie</h1>
         }
         </div>

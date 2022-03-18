@@ -4,3 +4,11 @@ export const TOGGLESOUNDDIV = () => {
     }
 }
 
+
+
+export const SETPLAYERHEIGHT = (data) => {
+    return {
+        type: "SETPLAYERHEIGHT",
+        height: data
+    }
+}

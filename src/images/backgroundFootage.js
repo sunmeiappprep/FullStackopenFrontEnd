@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import { useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { TOGGLESOUNDDIV } from '../actions/togglesounddiv'
+import { TOGGLESOUNDDIV,SETPLAYERHEIGHT } from '../actions/togglesounddiv'
 import { useEffect } from 'react'
 import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
 import VolumeOffSharpIcon from '@material-ui/icons/VolumeOffSharp';
@@ -16,7 +16,10 @@ const BackgroundFootage = () => {
         console.log(e)
         // e.props.playing = true
     }
-    const reduxStateSound = useSelector(state => state.togglesound)
+    const reduxStateSound = useSelector(state => state.togglesound.bool)
+    const testing = useSelector(state => state.playerHeight.height)
+    // console.log(testing)
+    
     // console.log(reduxStateSound)
     const dispatch = useDispatch()
 
@@ -33,11 +36,17 @@ const BackgroundFootage = () => {
         setmuted(reduxStateSound)
     },[reduxStateSound])
 
+    //This is to set the css with absolute value logic for the movies renders 
+    useEffect(()=>{
+        dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.85}px`))
+    },[])
+
     // console.log(window.innerWidth)
 
     const changeHeightOnPlayerBasedOnInnerWidth = (e) => {
         let currentWidth = window.innerWidth
             setheightOfPlayer(`${Math.floor(currentWidth*.56)}px`)
+            dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.85}px`))
             // console.log("running")
       }
     
@@ -63,8 +72,8 @@ const BackgroundFootage = () => {
             <div className='youtubePlayerDiv' >
             <ReactPlayer 
             id='topPic' 
-            // url={'https://www.youtube.com/watch?v=Euel4YLUUOQ?rel=0'}
-            url={'https://www.youtube.com/watch?v=VLSG-mOce0c'}
+            url={'https://www.youtube.com/watch?v=Euel4YLUUOQ?rel=0'}
+            // url={'https://www.youtube.com/watch?v=VLSG-mOce0c'}
             width={"100vw"}
             height={heightOfPlayer}
             playing={playing}
