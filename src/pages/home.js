@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <React.Fragment>
             <NavbarMain/>
-            <BackgroundFootage/>
+            {/* <BackgroundFootage/> */}
             <MovieMain/>
         </React.Fragment>
        

@@ -3,18 +3,37 @@ import { useState } from "react";
 import Modal from "react-modal/lib/components/Modal";
 import MovieImage from "./movieImage";
 import GetImagesFromID from "../axiosCalls/getImagesFromID";
+import { useEffect } from "react";
 const SingleModal = ({singleMovie}) => {
 
     // why I need this comp?
     // because I am looping thru an array in the carousal, 
     // each item in the array need its own modal state and info
     // then after that it gets put into the carousal with modal in tacl
-
+    
     const[modalIsOpen,setModalIsOpen] = useState(false)
+    const[width,setWidth] = useState(`${Math.floor(window.innerWidth*.20)}px`)
+
     let netflixID = singleMovie.netflix_id
     let doesThisHaveBo = singleMovie.bo
     let hasImg = singleMovie.img
     Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
+
+    const getWidthOfWindowToResize = (e) => {
+        let currentWidth = window.innerWidth
+            setWidth(`${Math.floor(currentWidth*.155)}px`)
+            // console.log("running")
+      }
+    
+      useEffect(() => {
+        window.addEventListener("resize", getWidthOfWindowToResize);
+        return () => {
+          window.removeEventListener("resize", getWidthOfWindowToResize);
+        };
+      }, []);
+
+
+
     return(
         <React.Fragment>
             {/* {
@@ -26,8 +45,8 @@ const SingleModal = ({singleMovie}) => {
             {
                 doesThisHaveBo
                 ?
-                <div >
-                <img className="alreadyHaveBo" onClick={()=>setModalIsOpen(true)} src={singleMovie.bo}
+                <div  className="alreadyHaveBoCon" >
+                <img className="alreadyHaveBo" style={{"width":width}} onClick={()=>setModalIsOpen(true)} src={singleMovie.bo}
                 />
                 </div>
                 : 

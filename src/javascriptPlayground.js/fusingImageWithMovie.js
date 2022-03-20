@@ -1,4 +1,4 @@
-let main = [
+let a = [
     {
         "title": "1942: A Love Story",
         "img": "https://occ-0-2042-299.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABa4cPLNp-A5KjgDX_fu7bVP-EAFigCEuYM9ZDBbF01HJDo4E3rulTUHgyTmACRWcc4nDN2SNvwxhxR4bwfFZP7kNmQ.jpg?r=f97",
@@ -47,7 +47,7 @@ let main = [
 
 ]
 
-let image = [
+let b = [
     {
         "215309": "https://occ-0-784-778.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABVLdFT22Am9QNxSe2uDrfMYTLo0fA8yySorpYaHepgJcKUtBScoJ8A85KApOfPUPnMGzrwgFRh4SZHL6CXMeP45TrIFP.jpg?r=283"
     },
@@ -59,18 +59,20 @@ let image = [
     }
 ]
 
-for (let i = 0; i < image.length; i++) {
-    const netflix_id = Object.keys(image[i]);
+for (let i = 0; i < b.length; i++) {
+    const netflix_id = Object.keys(b[i]);
     // console.log(netflix_id)
-    for (let j = 0; j < main.length; j++) {
-        const mainObj = main[j];
-        // console.log(mainObj)
-        if(mainObj.netflix_id == netflix_id)
-        mainObj.bo = Object.values(image[i]).toString()
+    for (let j = 0; j < a.length; j++) {
+        const aObj = a[j];
+        // console.log(aObj)
+        if(aObj.netflix_id == netflix_id)
+        aObj.bo = Object.values(b[i]).toString()
         continue
     }
     
     
 }
 
-console.log(main)
+console.log(a)
+console.log('asd')
+// 

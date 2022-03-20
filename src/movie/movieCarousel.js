@@ -7,9 +7,9 @@ const MovieCarousel = ({array}) => {
     const breakPoints = [
         { width: 1, itemsToShow: 2 },
         { width: 550, itemsToShow: 3 },
-        { width: 768, itemsToShow: 4 },
-        { width: 1100, itemsToShow: 5 },
-        { width: 1400, itemsToShow: 6 },
+        { width: 700, itemsToShow: 4 },
+        { width: 800, itemsToShow: 5 },
+        { width: 1300, itemsToShow: 6 },
     ];
     return(
         <React.Fragment>
@@ -17,12 +17,13 @@ const MovieCarousel = ({array}) => {
                 <Carousel 
                 itemsToScroll={5} 
                 breakPoints={breakPoints} 
-                enableSwipe={true} 
+                enableSwipe={false} 
                 >   
+                
                 {array.map(item => {
                     return (
-                        <div key={item.title}>
-                            <Item>
+                        <div className='singleCarouselItem'  key={item.title}>
+                            <Item >
                                 <SingleModal singleMovie={item}/>
                             </Item>
                         </div>

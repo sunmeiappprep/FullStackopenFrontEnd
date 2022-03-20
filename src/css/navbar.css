@@ -1,6 +1,9 @@
 *{
-    user-select: none
-
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 body {
@@ -154,8 +157,10 @@ a:hover{
     width: auto;
     height: auto;
     position: absolute;
-    top: 62%;
-    left: 89%;
+    /* top: 62%; */
+    /* left: 89%; */
+    bottom: 20%;
+    right: 5%;
     z-index: 1;
     border:2px solid white;
     border-radius: 50% !important ;
@@ -200,3 +205,14 @@ a:hover{
 
 }
 
+.jRFJkP,.cNNJIt{
+    color: white !important;
+}
+
+.jRFJkP{
+    margin-right: 10px;
+}
+
+.jRFJkP:hover:enabled{
+    background-color: gray !important;
+}

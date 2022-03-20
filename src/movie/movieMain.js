@@ -10,7 +10,6 @@ import MovieGenre from "./movieGenre";
 import MovieGenreSelection from "./movieGenreSelection";
 import { useRef } from 'react';
 import MovieCarousel from './movieCarousel'
-
 const MovieMain = () => {
 
     let genreKeySearchValue = {
@@ -655,9 +654,9 @@ const MovieMain = () => {
       }
 
     const search = useSelector(state => state.search)
-    const [movies,setMovies] = useState([])
+    const [movies,setMovies] = useState()
     const dispatch = useDispatch()
-    const absoluteValue = useSelector(state => state.togglesound.height)
+    const absoluteValue = useSelector(state => state.playerHeight.height)
     const typeOfMedia = useSelector(state => state.typeOfMedia)
 
     //this handleonsubmit , 
@@ -668,38 +667,49 @@ const MovieMain = () => {
     //
     const handleOnSubmit = () => {
         var options;
-        if(genreKeySearchValue[search]){
-            options = {
-                method: 'GET',
-                url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
-                params: {genre_list: genreKeySearchValue[search], order_by: 'rating', limit: '25',type: typeOfMedia},
-                headers: {
-                  'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
-                  'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
-                }
-              };  
-            // console.log(genreKeySearchValue[search],search)
-        }else {
-            let modifedSearch = search.split(" ").join("_")
-            options = {
-                method: 'GET',
-                url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
-                params: {title: modifedSearch, order_by: 'rating', limit: '15'},
-                headers: {
-                    'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
-                    'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
-                }
-            };
+        if(search.length !== 0){
+            if(genreKeySearchValue[search]){
+                options = {
+                    method: 'GET',
+                    url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
+                    params: {genre_list: genreKeySearchValue[search], order_by: 'rating', limit: '25',type: typeOfMedia},
+                    headers: {
+                      'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
+                      'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
+                    }
+                  };  
+                // console.log(genreKeySearchValue[search],search)
+            }else {
+                let modifedSearch = search.split(" ").join("_")
+                options = {
+                    method: 'GET',
+                    url: 'https://unogs-unogs-v1.p.rapidapi.com/search/titles',
+                    params: {title: modifedSearch, order_by: 'rating', limit: '15'},
+                    headers: {
+                        'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
+                        'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
+                    }
+                };
+            }
+            
+            
+            //this will add one to the redux state
+            dispatch(APIADD())
+            axios.request(options).then(function (response) {
+                    if(response.data.results){
+                        console.log(response.data.results.filter(movie => movie.img));
+                        setMovies(response.data.results.filter(movie => movie.img))
+                        dispatch(UPDATEMOVIELIST(response.data.results.filter(movie => movie.img)))
+                    }
+                    else{
+                        setMovies([])
+                    }
+                   
+            }).catch(function (error) {
+                console.error(error);
+            });
         }
-        //this will add one to the redux state
-        dispatch(APIADD())
-        axios.request(options).then(function (response) {
-                console.log(response.data.results.filter(movie => movie.img));
-                setMovies(response.data.results.filter(movie => movie.img))
-                dispatch(UPDATEMOVIELIST(response.data.results.filter(movie => movie.img)))
-        }).catch(function (error) {
-            console.error(error);
-        });
+        
 
     }
     //this only triggers when a new search is made.
@@ -715,30 +725,32 @@ const MovieMain = () => {
      
 
 
-    console.log(movies)
+    if (!movies) return false
     return (
         <div>
 
         {/* <MovieGenre genre={10499}/> */}
         {   
-        movies 
+        movies.length > 0
             ?
             // Why I need this absoluteValue?
             // cause I need to make the div shrink as the
             // window shrink
             <div >
-                {/* <div className='movieDisplay'> */}
-                    <MovieCarousel array={movies}/>
-                    {/* {movies.map(movie =>
-                        <div className='notSelectable' key={movie.title+movie.netflix_id} >
+                <div className="searchStatement">You search for {search.charAt(0).toUpperCase() + search.slice(1)}</div>
+                <div className='movieDisplay'>
+                    {/* <MovieCarousel array={movies}/> */}
+                    {movies.map(movie =>
+                        <div key={movie.title+movie.netflix_id} >
                             <MovieDisplay movie={movie} />
                         </div>
                         )
-                    } */}
-                {/* </div>  */}
+                    }
+                </div> 
             </div>
 
-            :<h1>There are no search result for this movie</h1>
+            :<div className="searchStatement">You search for {search.charAt(0).toUpperCase() + search.slice(1)} but there are no result</div>
+
         }
         </div>
     )

@@ -1,39 +1,45 @@
 import React from 'react'
 import Modal from 'react-modal/lib/components/Modal'
-import { useState } from 'react'
 import MovieSearch from './movieSearch'
 import MovieImage from './movieImage'
+import { useState } from 'react'
+import { useEffect } from 'react'
+
 
 Modal.setAppElement('#root')
 const MovieDisplay = ({movie}) => {
         // movie.primaryImage.url
         // console.log(movie)
         const[modalIsOpen,setModalIsOpen] = useState(false)
-        let test = {
-            "title": "Superman Returns",
-            "img": "https://occ-0-2851-38.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABUj1Z_DG7PosuovOOvMQokGRQhDZw0ac4UqFfLE1od2I0wxrgY0AJXNoSRfXoZ2rDtOxbwlU0mTdA60KhhX9C342_Q.jpg?r=256",
-            "title_type": "movie",
-            "netflix_id": 70041963,
-            "synopsis": "When Superman returns to Metropolis, he finds that Lois Lane has moved on to another man and Lex Luthor is developing a new plan to rule the world.",
-            "rating": "3.3641756",
-            "year": "2006",
-            "runtime": "9255",
-            "imdb_id": "tt0348150",
-            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTU3NzA5MjI0Nl5BMl5BanBnXkFtZTcwMTEwNzMzMQ@@._V1_SX300.jpg",
-            "top250": 0,
-            "top250tv": 0,
-            "title_date": "2015-04-14"
-        }
+        const[width,setWidth] = useState("342px")
+        const[height,setHeight] = useState("192px")
+
+        let doesThisHaveBo = movie.bo
         // console.log(movie.rating)
     let hasImg = movie.img
     let hasPoster = movie.poster
     Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
     // console.log(Modal.defaultStyles.overlay.backgroundColor )
+
+
   return (
-    <div >
-        {hasImg && 
-        <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/>}
-        
+    <div  className='gridFormat'>
+        {/* {hasImg && 
+        <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/>} */}
+            {
+                doesThisHaveBo
+                ?
+                <div  className="alreadyHaveBoCon" >
+               <img className="alreadyHaveBo" style={{"width":width,"height":height}} onClick={()=>setModalIsOpen(true)} src={movie.bo}
+
+                />
+                </div>
+                : 
+                <div className="getImagesFromID"style={{"width":width,"height":height}} onClick={()=>setModalIsOpen(true)} >
+                    <MovieImage netflix_id={movie.netflix_id} />
+                    {/* <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/> */}
+                </div>
+            }
         <div >
             <Modal 
               

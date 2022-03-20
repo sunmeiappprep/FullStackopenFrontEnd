@@ -13,7 +13,7 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 const BackgroundFootage = () => {
     
     const handleOnReady = (e) => {
-        console.log(e)
+        // console.log(e)
         // e.props.playing = true
     }
     const reduxStateSound = useSelector(state => state.togglesound.bool)
@@ -38,7 +38,7 @@ const BackgroundFootage = () => {
 
     //This is to set the css with absolute value logic for the movies renders 
     useEffect(()=>{
-        dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.85}px`))
+        dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.80}px`))
     },[])
 
     // console.log(window.innerWidth)
@@ -46,7 +46,7 @@ const BackgroundFootage = () => {
     const changeHeightOnPlayerBasedOnInnerWidth = (e) => {
         let currentWidth = window.innerWidth
             setheightOfPlayer(`${Math.floor(currentWidth*.56)}px`)
-            dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.85}px`))
+            dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.80}px`))
             // console.log("running")
       }
     

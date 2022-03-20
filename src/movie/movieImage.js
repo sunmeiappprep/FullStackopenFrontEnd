@@ -64,17 +64,11 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
             {synopsis} */}
             <div className="arrayOfImagesContainer">
                 {
-                    dimension.length !== 0 ?
-                    dimension.map(image =>
-                        <div key={image} className="arrayOfImages">
-                        {
-                            <img src={image}></img>
-                        }
-                        </div>
-                        )
+                    dimension.length !== 0 
+                    ?
+                    <img src={dimension[0]}></img>
                     :
-                    <img src={'https://i.imgur.com/st2SrKk.jpeg'}></img>
-                    
+                    <img style={{"width":"100px","margin-left": "auto","margin-right": "auto"}} src={'https://media4.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=ecf05e47v8kdcu12ej71qnqetp7w9kvxnl2jrm0xin1u6byp&rid=giphy.gif&ct=g'}></img>
                 }
             </div>
 
@@ -82,3 +76,28 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
     )
 }
 export default MovieImage
+
+// return(
+//     <div>
+//         {counter}
+//         {/* <img src={poster}/>
+//         {title}
+//         {synopsis} */}
+//         <div className="arrayOfImagesContainer">
+//             {
+//                 dimension.length !== 0 ?
+//                 dimension.map(image =>
+//                     <div key={image} className="arrayOfImages">
+//                     {
+//                         <img src={image}></img>
+//                     }
+//                     </div>
+//                     )
+//                 :
+//                 <img src={'https://i.imgur.com/st2SrKk.jpeg'}></img>
+                
+//             }
+//         </div>
+
+//     </div>
+// )
