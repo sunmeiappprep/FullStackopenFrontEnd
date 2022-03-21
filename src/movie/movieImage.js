@@ -14,8 +14,8 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
             url: 'https://unogs-unogs-v1.p.rapidapi.com/title/images',
             params: {netflix_id: netflix_id},
             headers: {
-              'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
-              'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
+                'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
+                'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
             }
           };
           dispatch(APIADD())
@@ -35,7 +35,6 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
         img.onload = function() {
             // console.log( this.width +" "+ this.height );
             if(this.width> 1000 && type[1] === "o"){
-                console.log(type)
                 setDimension(prevArray => [...prevArray, url])
                 // console.log(url)
 
@@ -56,9 +55,10 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
         }
         )
     },[images]) 
+
     return(
         <div>
-            {counter}
+            {/* {counter} */}
             {/* <img src={poster}/>
             {title}
             {synopsis} */}
@@ -77,27 +77,3 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
 }
 export default MovieImage
 
-// return(
-//     <div>
-//         {counter}
-//         {/* <img src={poster}/>
-//         {title}
-//         {synopsis} */}
-//         <div className="arrayOfImagesContainer">
-//             {
-//                 dimension.length !== 0 ?
-//                 dimension.map(image =>
-//                     <div key={image} className="arrayOfImages">
-//                     {
-//                         <img src={image}></img>
-//                     }
-//                     </div>
-//                     )
-//                 :
-//                 <img src={'https://i.imgur.com/st2SrKk.jpeg'}></img>
-                
-//             }
-//         </div>
-
-//     </div>
-// )

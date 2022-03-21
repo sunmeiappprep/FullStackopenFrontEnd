@@ -23,7 +23,7 @@ const GetImagesFromID = ({netflix_id}) => {
             params: {netflix_id: netflix_id},
             headers: {
               'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
-              'x-rapidapi-key': 'b49a84c68fmshcd0c0ae889304fep1f8400jsncfc1f5dbf1ce'
+                'x-rapidapi-key': process.env.REACT_APP_REACT_KEY
             }
           };
           dispatch(APIADD())
@@ -77,7 +77,7 @@ const GetImagesFromID = ({netflix_id}) => {
         setboUrl("https://media4.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=ecf05e47v8kdcu12ej71qnqetp7w9kvxnl2jrm0xin1u6byp&rid=giphy.gif&ct=g")
     }
   return (
-      <img className="getImagesFromID" src={boUrl}></img>
+      <img style={{"width":"100px","margin-left": "auto","margin-right": "auto","margin-bottom": "auto"}} className="getImagesFromID" src={boUrl}></img>
   )
 }
 

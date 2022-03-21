@@ -13,32 +13,17 @@ const SingleModal = ({singleMovie,propWidth}) => {
     // then after that it gets put into the carousal with modal in tacl
     
     const[modalIsOpen,setModalIsOpen] = useState(false)
-    // const[width,setWidth] = useState(`${Math.floor(window.innerWidth*.155)}px`)
     const[width,setWidth] = useState("")
 
 
     let netflixID = singleMovie.netflix_id
     let doesThisHaveBo = singleMovie.bo
-    let hasImg = singleMovie.img
+
     Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
 
-    // const getWidthOfWindowToResize = (e) => {
-    //     let currentWidth = window.innerWidth
-    //         setWidth(`${Math.floor(currentWidth*.155)}px`)
-    //         // console.log("running")
-    //   }
-    
-    //   useEffect(() => {
-    //     window.addEventListener("resize", getWidthOfWindowToResize);
-    //     return () => {
-    //       window.removeEventListener("resize", getWidthOfWindowToResize);
-    //     };
-    //   }, []);
 
       const changeImgBasic = (e) => {
-        // console.log("is this running?")
         let currentWidth = window.innerWidth
-        // console.log(currentWidth)
         if (currentWidth > 1363){
           setWidth("15vw")
         }
@@ -61,17 +46,18 @@ const SingleModal = ({singleMovie,propWidth}) => {
         changeImgBasic()
       },[propWidth])
 
-    //   console.log("this is SM",width)
-    //   console.log("this is props",propWidth)
+      const reformatSynopsis = (synopsis) =>{
+        let moreLeft = synopsis.indexOf(`&#39;`)
+            while (moreLeft !== -1){
+                synopsis = synopsis.slice(0,moreLeft)+"'"+synopsis.slice(moreLeft+5)
+                moreLeft = synopsis.indexOf(`&#39;`)
+            }
+        console.log(synopsis.slice(0,moreLeft)+"'"+synopsis.slice(moreLeft+5))
+        return synopsis
+      }
 
     return(
         <React.Fragment>
-            {/* {
-            hasImg 
-            && 
-            <img onClick={()=>setModalIsOpen(true)} src={singleMovie.img} width={150}
-            />
-            } */}
             {
                 doesThisHaveBo
                 ?
@@ -80,6 +66,7 @@ const SingleModal = ({singleMovie,propWidth}) => {
                 />
                 </div>
                 : 
+                // In theory this will not be use cause the array is from JSON file
                 <div className="getImagesFromID" onClick={()=>setModalIsOpen(true)} >
                     <GetImagesFromID netflix_id={netflixID} />
                 </div>
@@ -91,32 +78,23 @@ const SingleModal = ({singleMovie,propWidth}) => {
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
                 shouldFocusAfterRender={true}
-                style = {
-                    // there is reactcss in the css files
-                    {
-                    overlay: {
-                        backgroundColor:"black",
-                    },
-                    // content: {
-                    // }
-                    }
-                }
+                style = {{overlay: {backgroundColor:"black",}}}
                 >
                 {/* this is modal content zone */}
-                {/* <div>
-                    <h1>asd1</h1>
-                    <h1>asd2</h1>
-                    <h3>asd3</h3>
-                    <h4>asd4</h4>
-                </div> */}
                 <YoutubePlayer title={singleMovie.title}/>
-                <MovieImage 
-                    netflix_id={singleMovie.netflix_id} 
-                    title={singleMovie.title}
-                    synopsis={singleMovie.synopsis}
-                    poster={singleMovie.img}
-                />
-                <div className="synopsisDiv">{`${singleMovie.synopsis}`}</div>
+                {
+                    modalIsOpen && 
+                        <MovieImage
+                            netflix_id={singleMovie.netflix_id}
+                            title={singleMovie.title}
+                            synopsis={singleMovie.synopsis}
+                            poster={singleMovie.img}
+                        />
+                }
+       
+                {
+                    modalIsOpen && <div className="synopsisDiv">{reformatSynopsis(singleMovie.synopsis)}</div>
+                }
 
                 </Modal>
                 

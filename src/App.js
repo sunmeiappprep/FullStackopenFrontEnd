@@ -34,10 +34,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/tv" element={<Tvshow />} />
-      <Route path="/dvd" element={<Dvd />} />
+      {/* <Route path="/dvd" element={<Dvd />} /> */}
       <Route path="/movies" element={<Movies />} />
-      <Route path="/mylist" element={<Mylist />} />
-      <Route path="/popular" element={<Popular />} />
+      {/* <Route path="/mylist" element={<Mylist />} /> */}
+      {/* <Route path="/popular" element={<Popular />} /> */}
       {/* <Route path="/dvd" element={<Dvd/>} /> */}
       
     </Routes>

@@ -8,61 +8,33 @@ import { useEffect } from 'react'
 
 Modal.setAppElement('#root')
 const MovieDisplay = ({movie,width}) => {
-        // movie.primaryImage.url
-        // console.log(movie)
+
         const[modalIsOpen,setModalIsOpen] = useState(false)
-        // const[width,setWidth] = useState("")
         const[height,setHeight] = useState("")
 
         let doesThisHaveBo = movie.bo
-        // console.log(movie.rating)
-    let hasImg = movie.img
-    let hasPoster = movie.poster
-    Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
-    // console.log(Modal.defaultStyles.overlay.backgroundColor )
+   
+        Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
 
+        //Need this code to remove the ' error display in the synopsis
 
-  // const changeImgBasic = (e) => {
-  //     let currentWidth = window.innerWidth
-  //     console.log(currentWidth)
-  //     if (currentWidth > 1600){
-  //       setWidth("16vw")
-  //     }
-  //     else if (currentWidth > 1300){
-  //       setWidth("19vw")
-  //     }
-  //     else if (currentWidth > 1000){
-  //       setWidth("24vw")
-  //     }
-  //     else if (currentWidth > 800){
-  //       setWidth("30vw")
-  //     }
-  //     else{
-  //       setWidth("45vw")
-  //     }
-  //         // if(currentWidth > 1600)
-  //         // setheightOfPlayer(`${Math.floor(currentWidth*.56)}px`)
-  //         // dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.80}px`))
-  //         // console.log("running")
-  //   }
-  
-  //   useEffect(() => {
-  //     window.addEventListener("resize", changeImgBasic);
-  //     return () => {
-  //       window.removeEventListener("resize", changeImgBasic);
-  //     };
-  //   }, []);
-  // // console.log(window.innerWidth)
-
-  // useEffect(() =>{
-  //   changeImgBasic()
-  // },[])
+        const reformatSynopsis = (synopsis) => {
+          let moreLeft = synopsis.indexOf(`&#39;`)
+          while (moreLeft !== -1) {
+            synopsis = synopsis.slice(0, moreLeft) + "'" + synopsis.slice(moreLeft + 5)
+            moreLeft = synopsis.indexOf(`&#39;`)
+          }
+          console.log(synopsis.slice(0, moreLeft) + "'" + synopsis.slice(moreLeft + 5))
+          return synopsis
+        }
 
 
   return (
     <div  className='gridFormat'>
         {/* {hasImg && 
         <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/>} */}
+        {/* if this has Bo image then load it from there */}
+        {/* if not use movieImage to load a wide frame picture */}
             {
                 doesThisHaveBo
                 ?
@@ -78,45 +50,28 @@ const MovieDisplay = ({movie,width}) => {
                 </div>
             }
         <div >
+          {/* This is the modal and its props and content */}
+          {/* Youtube will load a video with first result based on title and auto play muted */}
+          {/* if modal is open then load the synoposis */}
             <Modal 
-              
               isOpen={modalIsOpen}
               onRequestClose={() => setModalIsOpen(false)}
               shouldFocusAfterRender={true}
-              style = {
-              
-                {
-                  overlay: {
-                    backgroundColor:"black",
-                    // width:"100vw",
-                    // height:"50vh",
-                    // top: "25%",
-
-                  },
-                  // content: {
-                  //   boxSizing:"borderBox",
-                  //   width:"50vw",
-                  //   // color:'green',
-                  //   left: "25%",
-                  //   // top: "25%",
-                  //   // backgroundColor:'black',
-                  //   border:"none",
-                  //   overflow: "hidden",
-                  //   overflowY: "scroll",
-                  // }
-                }
-              }
-            >
+              style = {{overlay: {backgroundColor:"black",}}}
+               >
               <YoutubePlayer title={movie.title}/>
-              <MovieImage netflix_id={movie.netflix_id} 
-              title={movie.title}
-              synopsis={movie.synopsis}
-              poster={movie.img}/>
-              <div className='synopsisDiv'>{`${movie.synopsis}`}</div>
+              {
+                modalIsOpen &&
+                <MovieImage netflix_id={movie.netflix_id}
+                title={movie.title}
+                synopsis={movie.synopsis}
+                poster={movie.img} />
+              }
+              {
+                modalIsOpen && <div className="synopsisDiv">{reformatSynopsis(movie.synopsis)}</div>
+              }
             </Modal>
         </div>
-        
-        {/* <Modal/> */}
     </div>
   )
 }

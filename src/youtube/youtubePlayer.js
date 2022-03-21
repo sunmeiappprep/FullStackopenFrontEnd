@@ -11,7 +11,7 @@ const YoutubePlayer = ({title}) => {
 
         let searchTrailer = (term+" "+"trailer")
         const response = await youtube.get('/search',{
-            params: { part: "snippet", maxResults: 1, key: 'AIzaSyDplzBTA6D4MVDHbdJ9kYtHeblb0KPdAvw', q: searchTrailer }
+            params: { part: "snippet", maxResults: 1, key: `${process.env.REACT_APP_YOUTUBE_KEY}`, q: searchTrailer }
         })
         setVideoLink("https://www.youtube.com/watch?v="+response.data.items[0].id.videoId)
     }
