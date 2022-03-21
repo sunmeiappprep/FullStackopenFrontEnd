@@ -10,8 +10,14 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 // import { FileDownload } from "@mui/icons-material";
 // node_modules\@material-ui
 // import FontAwesomeIcon from '@fortawesome/free-solid-svg-icons' 
-const BackgroundFootage = () => {
+const BackgroundFootage = ({links}) => {
+    const [randomLink,setRandomLink] = useState()
     
+    useEffect(()=>{
+        setRandomLink(links[Math.floor(Math.random()*links.length)])
+    },[])
+    // let randomLink = 
+
     const handleOnReady = (e) => {
         // console.log(e)
         // e.props.playing = true
@@ -72,7 +78,7 @@ const BackgroundFootage = () => {
             <div className='youtubePlayerDiv' >
             <ReactPlayer 
             id='topPic' 
-            url={'https://www.youtube.com/watch?v=Euel4YLUUOQ?rel=0'}
+            url={randomLink}
             // url={'https://www.youtube.com/watch?v=VLSG-mOce0c'}
             width={"100vw"}
             height={heightOfPlayer}

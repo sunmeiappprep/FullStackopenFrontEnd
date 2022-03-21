@@ -28,6 +28,7 @@ import science from '../JSONdata/tvshows/science.json'
 import spanish from '../JSONdata/tvshows/spanish.json'
 import standup from '../JSONdata/tvshows/standup.json'
 import thriller from '../JSONdata/tvshows/thriller.json'
+import compete from '../JSONdata/tvshows/compete.json'
 
 
 
@@ -124,6 +125,9 @@ const Dvd = () => {
         {
             'Thriller':thriller
         },
+        {
+            "Compete":compete
+        }
 
     ]
 
@@ -177,6 +181,7 @@ const Dvd = () => {
 
     const absoluteValue = useSelector(state => state.playerHeight.height)
 
+    
 
     useEffect(()=>{
         // console.log(absoluteValue)
@@ -210,21 +215,21 @@ const Dvd = () => {
             <div className='movieAbsDiv' style={{"top":absoluteValue}}>
                 {
                     <div className="movieCarouselContainer">
-                        <div className='genreText' style={{"margin-left":"45px"}}>{firstStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{firstStateN}</div>
                         <MovieCarousel array={firstState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{secondStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{secondStateN}</div>
                         <MovieCarousel array={secondState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{thirdStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{thirdStateN}</div>
                         <MovieCarousel array={thirdState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{fourthStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{fourthStateN}</div>
                         <MovieCarousel array={fourthState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{fifthStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{fifthStateN}</div>
                         <MovieCarousel array={fifthState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{sixStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{sixStateN}</div>
                         <MovieCarousel array={sixState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{sevenStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{sevenStateN}</div>
                         <MovieCarousel array={sevenState}/>
-                        <div className='genreText' style={{"margin-left":"45px"}}>{eightStateN}</div>
+                        <div className='genreText' style={{"margin-left":"40px"}}>{eightStateN}</div>
                         <MovieCarousel array={eightState}/>
                     </div>
                 }

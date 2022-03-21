@@ -55,48 +55,48 @@ const MovieGenreSelection = ({typeOfFormat,typeOfMediaForSearch}) => {
                     <table className="table">
                         <tbody>
                             <tr>
-                                <td onClick={() => handleGenre("Action & Adventure Programmes")}>Action</td>	
-                                <td onClick={() => handleGenre("Drama Programmes")}>Dramas</td>
-                                <td onClick={() => handleGenre("Fantasy TV Programmes")}>Fantasy</td>
+                            <td onClick={() => handleGenre("Action")}>Action</td>	
+                                <td onClick={() => handleGenre("Dramas")}>Dramas</td>
+                                <td onClick={() => handleGenre("Fantasy")}>Fantasy</td>
                             </tr>
                             <tr>
                                 <td onClick={() => handleGenre("Anime")}>Anime</td>
-                                <td onClick={() => handleGenre("Horror Programmes")}>Horror</td>
-                                <td onClick={() => handleGenre("Science & Nature TV")}>Science & Nature TV</td>
+                                <td onClick={() => handleGenre("Horror")}>Horror</td>
+                                <td onClick={() => handleGenre("Science")}>Science & Nature TV</td>
                             </tr>
                             <tr>
                                 <td onClick={() => handleGenre("British")}>British</td>
-                                <td onClick={() => handleGenre("International Programmes")}>International</td>
-                                <td onClick={() => handleGenre("Stand-up & Chat Shows")}>Stand-up & Chat Shows</td>
+                                <td onClick={() => handleGenre("International")}>International</td>
+                                <td onClick={() => handleGenre("Standup")}>Stand-up & Chat Shows</td>
                             </tr>
                             <tr>
-                                <td onClick={() => handleGenre("Comedy Programmes")}>Classic Comedies</td>
-                                <td onClick={() => handleGenre("K-dramas")}>K-Dramas</td>
-                                <td onClick={() => handleGenre("Spanish TV Programmes")}>Spanish TV</td>
+                                <td onClick={() => handleGenre("Comedies")}>Classic Comedies</td>
+                                <td onClick={() => handleGenre("K-drama")}>K-Dramas</td>
+                                <td onClick={() => handleGenre("Spanish")}>Spanish TV</td>
                             </tr>
                             <tr>
-                                <td onClick={() => handleGenre("Food & Travel TV")}>Food & Travel TV</td>
-                                <td onClick={() => handleGenre("Kids Music")}>Kids Music</td>
-                                <td onClick={() => handleGenre("Teen Programmes")}>Teen</td>
+                                <td onClick={() => handleGenre("Food")}>Food & Travel TV</td>
+                                <td onClick={() => handleGenre("Kids")}>Kids Music</td>
+                                <td onClick={() => handleGenre("Teen")}>Teen</td>
                             </tr>
                             <tr>
-                                <td onClick={() => handleGenre("Indian Programmes")}>Indian</td>
-                                <td onClick={() => handleGenre("Gay & Lesbian TV Programmes")}>LGBTQ</td>
+                                <td onClick={() => handleGenre("Indian")}>Indian</td>
+                                <td onClick={() => handleGenre("LGBTQ")}>LGBTQ</td>
                             </tr>
                             <tr>
-                                <td onClick={() => handleGenre("Crime TV Dramas")}>Crime</td>
-                                <td onClick={() => handleGenre("Thriller Programmes")}>Thriller</td>
+                                <td onClick={() => handleGenre("Crime")}>Crime</td>
+                                <td onClick={() => handleGenre("Thriller")}>Thriller</td>
                             </tr> 
                             <tr>
                             </tr>
                             <tr>
-                                <td onClick={() => handleGenre("Competition Reality TV")}>Competition Reality TV</td>
-                                <td onClick={() => handleGenre("Japanese TV Dramas")}>Japanese</td>
+                                <td onClick={() => handleGenre("Compete")}>Competition Reality TV</td>
+                                <td onClick={() => handleGenre("Japanese")}>Japanese</td>
             
                             </tr>
                             <tr>
-                                <td onClick={() => handleGenre("Documentary Programmes")}>Documentaries</td>
-                                <td onClick={() => handleGenre("Romance Programmes")}>Romance</td>
+                                <td onClick={() => handleGenre("Documentary")}>Documentaries</td>
+                                <td onClick={() => handleGenre("Romance")}>Romance</td>
                             
                             </tr> 
 
@@ -112,10 +112,10 @@ const MovieGenreSelection = ({typeOfFormat,typeOfMediaForSearch}) => {
                         <tr>
                             <td onClick={() => handleGenre("African Films")}>African</td>	
                             <td onClick={() => handleGenre("Crime Films")}>Crime</td>
-                            <td onClick={() => handleGenre("Sci-Fi Horror Films")}>Sci-Fi</td>
+                            <td onClick={() => handleGenre("Sci-Fi Films")}>Sci-Fi</td>
                         </tr>
                         <tr>
-                            <td onClick={() => handleGenre("Anime Feature Films")}>Anime</td>
+                            <td onClick={() => handleGenre("Anime Films")}>Anime</td>
                             <td onClick={() => handleGenre("Danish Films")}>Danish</td>
                             <td onClick={() => handleGenre("Spanish Films")}>Spanish</td>
                         </tr>
@@ -136,20 +136,20 @@ const MovieGenreSelection = ({typeOfFormat,typeOfMediaForSearch}) => {
                         </tr>
                         <tr>
                             <td onClick={() => handleGenre("Bollywood Films")}>Bollywood</td>
-                            <td onClick={() => handleGenre("Gay & Lesbian Films")}>LGBTQ</td>
+                            <td onClick={() => handleGenre("LGBTQ Films")}>LGBTQ</td>
                             <td onClick={() => handleGenre("Teen Films")}>Teen</td>
 
                         </tr>
                         <tr>
-                            <td onClick={() => handleGenre("Brazilian Films")}>Brazilian</td>
+                            <td onClick={() => handleGenre("Brazilian Flims")}>Brazilian</td>
                             <td onClick={() => handleGenre("Polish Films")}>Polish</td>
                             <td onClick={() => handleGenre("Thai Films")}>Thai</td>
                         </tr> 
                         <tr>
                         </tr>
                         <tr>
-                            <td onClick={() => handleGenre("Britische Filme")}>British</td>
-                            <td onClick={() => handleGenre("Classic Romantic Films")}>Romantic</td>
+                            <td onClick={() => handleGenre("British Films")}>British</td>
+                            <td onClick={() => handleGenre("Romantic Films")}>Romantic</td>
                             <td onClick={() => handleGenre("Turkish Films")}>Turkish</td>
         
                         </tr>

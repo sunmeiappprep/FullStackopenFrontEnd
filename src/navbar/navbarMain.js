@@ -112,9 +112,7 @@ const NavbarMain = ({classStyle}) => {
   }, [renderDifferentNavbarBasedOnScrollY]);
 
   const checkIfUrlIsSelf = (slashRoute) => {
-    if (window.location.pathname !== slashRoute){
       window.location.href = slashRoute;
-    }
   }
 
   //I need the ref to trigger the hover to trigger the transition

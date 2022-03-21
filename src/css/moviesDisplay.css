@@ -67,6 +67,7 @@ h1{
 
 .ReactModal__Overlay--after-open{
     background-color: rgba(0, 0, 0, 0.6)!important;
+    padding: 20px !important;
     /* overflow:hidden !important */
 }
 
@@ -81,6 +82,7 @@ h1{
     overflow-y: scroll !important;
     animation: createBox .5s !important;
     border: 5px !important;
+
 }
 
 /* ::-webkit-scrollbar{ */
@@ -90,6 +92,7 @@ h1{
 .ReactModal__Content--after-open::-webkit-scrollbar {
     background: transparent; /* Chrome/Safari/Webkit */
     width: 0px;
+
 }
 
 .ReactModal__Body--open,
@@ -158,7 +161,7 @@ td:hover{
 }
 
 .modalForMovie{
-    animation: createBox 5s;
+    /* animation: createBox 5s; */
 }
 
 @keyframes createBox {
@@ -207,6 +210,7 @@ td:hover{
     object-fit: scale-down !important;
     /* display: flex !important; */
     /* z-index: 2; */
+    flex-shrink: 0;
     padding-bottom: 10px;
 }
 
@@ -217,6 +221,7 @@ td:hover{
     /* max-height: 150px  !important; */
     object-fit: scale-down !important;
     /* margin: 10px !important; */
+    flex-shrink: 0;
     padding-left: 2px;
     padding-right: 2px;
 
@@ -273,8 +278,8 @@ div > img {
 
 }
 
-.lcUbOd{
-    background-color: rgb(217 217 217 .5)!important;
+.lcUbOd {
+    background-color: white !important;
     box-shadow: 0 0 1px 3px rgb(170 161 161) !important;
 }
 
@@ -286,4 +291,14 @@ div > img {
     margin-top: 100px;
     margin-left: 25px;
 
+}
+
+.synopsisDiv{
+    font-size: 2rem;
+    /* text-align: center; */
+    color:white
+}
+
+.topPic2{
+    padding: none;
 }

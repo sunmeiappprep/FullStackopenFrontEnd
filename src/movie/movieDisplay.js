@@ -3,16 +3,16 @@ import Modal from 'react-modal/lib/components/Modal'
 import MovieSearch from './movieSearch'
 import MovieImage from './movieImage'
 import { useState } from 'react'
+import YoutubePlayer from '../youtube/youtubePlayer'
 import { useEffect } from 'react'
 
-
 Modal.setAppElement('#root')
-const MovieDisplay = ({movie}) => {
+const MovieDisplay = ({movie,width}) => {
         // movie.primaryImage.url
         // console.log(movie)
         const[modalIsOpen,setModalIsOpen] = useState(false)
-        const[width,setWidth] = useState("342px")
-        const[height,setHeight] = useState("192px")
+        // const[width,setWidth] = useState("")
+        const[height,setHeight] = useState("")
 
         let doesThisHaveBo = movie.bo
         // console.log(movie.rating)
@@ -20,6 +20,43 @@ const MovieDisplay = ({movie}) => {
     let hasPoster = movie.poster
     Modal.defaultStyles.overlay.backgroundColor = "rgba(100, 100, 100, 0.75)"
     // console.log(Modal.defaultStyles.overlay.backgroundColor )
+
+
+  // const changeImgBasic = (e) => {
+  //     let currentWidth = window.innerWidth
+  //     console.log(currentWidth)
+  //     if (currentWidth > 1600){
+  //       setWidth("16vw")
+  //     }
+  //     else if (currentWidth > 1300){
+  //       setWidth("19vw")
+  //     }
+  //     else if (currentWidth > 1000){
+  //       setWidth("24vw")
+  //     }
+  //     else if (currentWidth > 800){
+  //       setWidth("30vw")
+  //     }
+  //     else{
+  //       setWidth("45vw")
+  //     }
+  //         // if(currentWidth > 1600)
+  //         // setheightOfPlayer(`${Math.floor(currentWidth*.56)}px`)
+  //         // dispatch(SETPLAYERHEIGHT(`${Math.floor(window.innerWidth*.56)*.80}px`))
+  //         // console.log("running")
+  //   }
+  
+  //   useEffect(() => {
+  //     window.addEventListener("resize", changeImgBasic);
+  //     return () => {
+  //       window.removeEventListener("resize", changeImgBasic);
+  //     };
+  //   }, []);
+  // // console.log(window.innerWidth)
+
+  // useEffect(() =>{
+  //   changeImgBasic()
+  // },[])
 
 
   return (
@@ -35,7 +72,7 @@ const MovieDisplay = ({movie}) => {
                 />
                 </div>
                 : 
-                <div className="getImagesFromID"style={{"width":width,"height":height}} onClick={()=>setModalIsOpen(true)} >
+                <div className="getImagesFromID"style={{"max-width":width,"height":height}} onClick={()=>setModalIsOpen(true)} >
                     <MovieImage netflix_id={movie.netflix_id} />
                     {/* <img onClick={()=>setModalIsOpen(true)} src={movie.img} width={150}/> */}
                 </div>
@@ -70,14 +107,12 @@ const MovieDisplay = ({movie}) => {
                 }
               }
             >
+              <YoutubePlayer title={movie.title}/>
               <MovieImage netflix_id={movie.netflix_id} 
               title={movie.title}
               synopsis={movie.synopsis}
               poster={movie.img}/>
-              <h1>asd</h1>
-              <h2>asd</h2>
-              <h3>asd</h3>
-              <h4>asd</h4>
+              <div className='synopsisDiv'>{`${movie.synopsis}`}</div>
             </Modal>
         </div>
         

@@ -66,7 +66,7 @@ const GetImagesFromID = ({netflix_id}) => {
     },[images]) 
 
     useEffect(() => {
-        if (boUrl !== 'https://i.imgur.com/st2SrKk.jpeg' && counter === 0) {
+        if (boUrl !== 'https://media4.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=ecf05e47v8kdcu12ej71qnqetp7w9kvxnl2jrm0xin1u6byp&rid=giphy.gif&ct=g' && counter === 0) {
             console.log(boUrl)
             setCounter(prev => prev+1)
             dispatch(ADDIMAGEOBJTOREDUXSTATE({[netflix_id]:boUrl}))
@@ -74,7 +74,7 @@ const GetImagesFromID = ({netflix_id}) => {
     },[boUrl])
 
     if(boUrl.length === 0){
-        setboUrl("https://i.imgur.com/st2SrKk.jpeg")
+        setboUrl("https://media4.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=ecf05e47v8kdcu12ej71qnqetp7w9kvxnl2jrm0xin1u6byp&rid=giphy.gif&ct=g")
     }
   return (
       <img className="getImagesFromID" src={boUrl}></img>
