@@ -53,4 +53,4 @@ let Blocks = [
 
 let reqs = ["gym","school",'store']
 
-console.log(block(Blocks,reqs))
+// console.log(block(Blocks,reqs))
