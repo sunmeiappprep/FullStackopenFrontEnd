@@ -18,8 +18,8 @@ const block = (arr,req) => {
     }
 
 
-    console.log(tracker)
-    console.log(counter)
+    // console.log(tracker)
+    // console.log(counter)
 
 }
 

@@ -18,6 +18,7 @@ const YoutubePlayer = ({title}) => {
 
     useEffect(()=>{
         onAppCompSubmit(title)
+        // console.log("this is running",{title})
     },[])
     return (
         <React.Fragment>        

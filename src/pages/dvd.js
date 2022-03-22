@@ -191,7 +191,7 @@ const Dvd = () => {
         if(document.querySelector('.alreadyHaveBo')){
             var element = document.querySelector('.alreadyHaveBo')
             var positionInfo = element.getBoundingClientRect();
-            console.log(positionInfo.width)
+            // console.log(positionInfo.width)
             // setleftMargin(`${Math.abs(Math.floor(positionInfo.left)+5)}px`)
             
 
@@ -203,11 +203,11 @@ const Dvd = () => {
         if(document.querySelector('.izuVIe')){
             var element = document.querySelector('.izuVIe')
             var positionInfo = element.getBoundingClientRect();
-            console.log(positionInfo.x)
+            // console.log(positionInfo.x)
         }
     },[secondState])
 
-    console.log(fifthState)
+    // console.log(fifthState)
     return (
         <React.Fragment>
             <NavbarMain/>

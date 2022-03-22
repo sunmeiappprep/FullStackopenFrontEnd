@@ -112,7 +112,12 @@ const NavbarMain = ({classStyle}) => {
   }, [renderDifferentNavbarBasedOnScrollY]);
 
   const checkIfUrlIsSelf = (slashRoute) => {
+      if (slashRoute[0] !== "h"){
       window.location.href = slashRoute;
+      }
+      else {
+        window.open(slashRoute);
+      }
   }
 
   //I need the ref to trigger the hover to trigger the transition
@@ -123,8 +128,9 @@ const NavbarMain = ({classStyle}) => {
             <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/`)}>Home</div>
             <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/tv`)}>TV Shows</div>
             <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/movies`)}>Movies</div>
-            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/popular`)}>Popular</div>
-            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/mylist`)}>My List</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`https://waterbnb.herokuapp.com/#/`)}>WaterBnb</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`https://slippers.herokuapp.com/`)}>Slipper</div>
+            
 
         </div>
         <div className='navBarright'>
@@ -143,9 +149,9 @@ const NavbarMain = ({classStyle}) => {
                 </form>
               </div>
 
-            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`/dvd`)}>DVD</div>
-            <div className='notSelectable'>Reminder</div>
-            <div className='notSelectable'>Profile</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`https://sunmeiappprep.github.io/MouseDDR/`)}>MouseDDR</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`https://www.linkedin.com/in/sunny-mei-534677153/`)}>Linkedin</div>
+            <div className='notSelectable' onClick={() => checkIfUrlIsSelf(`https://sunmeiappprep.github.io/Profolio/`)}>Profolio</div>
         </div>
     </div>
   )

@@ -75,14 +75,14 @@ h1{
     border-radius: 30px !important;
     background-color: black !important;
     width: 50vw !important;
-    top: 7% !important;
+    top: 3% !important;
     left: 25% !important;
     box-sizing: border-box !important;
     overflow:hidden !important;
     overflow-y: scroll !important;
     animation: createBox .5s !important;
     border: 5px !important;
-
+    height: 95vh !important;
 }
 
 /* ::-webkit-scrollbar{ */

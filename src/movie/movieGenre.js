@@ -21,7 +21,7 @@ const MovieGenre = ({genre}) => {
           dispatch(APIADD())
 
           axios.request(options).then(function (response) {
-              console.log(response.data.results);
+            //   console.log(response.data.results);
             setMovieGenreMovies(response.data.results)
           }).catch(function (error) {
               console.error(error);
