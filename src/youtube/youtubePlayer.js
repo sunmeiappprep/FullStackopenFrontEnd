@@ -8,7 +8,7 @@ const YoutubePlayer = ({title}) => {
 
 
     const onAppCompSubmit = async (term) => {
-
+        // console.log("this is running",{title}, "onappcomp")
         let searchTrailer = (term+" "+"trailer")
         const response = await youtube.get('/search',{
             params: { part: "snippet", maxResults: 1, key: `${process.env.REACT_APP_YOUTUBE_KEY}`, q: searchTrailer }
@@ -18,7 +18,7 @@ const YoutubePlayer = ({title}) => {
 
     useEffect(()=>{
         onAppCompSubmit(title)
-        console.log("this is running",{title})
+        // console.log("this is running",{title})
     },[])
     return (
         <React.Fragment>        
