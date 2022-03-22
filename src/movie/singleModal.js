@@ -52,7 +52,7 @@ const SingleModal = ({singleMovie,propWidth}) => {
                 synopsis = synopsis.slice(0,moreLeft)+"'"+synopsis.slice(moreLeft+5)
                 moreLeft = synopsis.indexOf(`&#39;`)
             }
-        console.log(synopsis.slice(0,moreLeft)+"'"+synopsis.slice(moreLeft+5))
+        // console.log(synopsis.slice(0,moreLeft)+"'"+synopsis.slice(moreLeft+5))
         return synopsis
       }
 
@@ -81,7 +81,10 @@ const SingleModal = ({singleMovie,propWidth}) => {
                 style = {{overlay: {backgroundColor:"black",}}}
                 >
                 {/* this is modal content zone */}
-                <YoutubePlayer title={singleMovie.title}/>
+                {
+                  modalIsOpen && <YoutubePlayer title={singleMovie.title} />
+                }
+                
                 {
                     modalIsOpen && 
                         <MovieImage

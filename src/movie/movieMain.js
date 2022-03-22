@@ -133,7 +133,7 @@ const MovieMain = ({width}) => {
 
         if(search.length !== 0){
             if(mappingNameToObj[search]){
-                console.log(search)
+                // console.log(search)
                 setMovies(mappingNameToObj[search])
                 // options = {
                 //     method: 'GET',
@@ -160,7 +160,7 @@ const MovieMain = ({width}) => {
                 dispatch(APIADD())
                 axios.request(options).then(function (response) {
                         if(response.data.results){
-                            console.log(response.data.results.filter(movie => movie.img));
+                            // console.log(response.data.results.filter(movie => movie.img));
                             setMovies(response.data.results.filter(movie => movie.img))
                             dispatch(UPDATEMOVIELIST(response.data.results.filter(movie => movie.img)))
                         }

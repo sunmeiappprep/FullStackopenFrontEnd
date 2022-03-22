@@ -24,7 +24,7 @@ const MovieDisplay = ({movie,width}) => {
             synopsis = synopsis.slice(0, moreLeft) + "'" + synopsis.slice(moreLeft + 5)
             moreLeft = synopsis.indexOf(`&#39;`)
           }
-          console.log(synopsis.slice(0, moreLeft) + "'" + synopsis.slice(moreLeft + 5))
+          // console.log(synopsis.slice(0, moreLeft) + "'" + synopsis.slice(moreLeft + 5))
           return synopsis
         }
 
@@ -59,7 +59,10 @@ const MovieDisplay = ({movie,width}) => {
               shouldFocusAfterRender={true}
               style = {{overlay: {backgroundColor:"black",}}}
                >
-              <YoutubePlayer title={movie.title}/>
+              {
+                modalIsOpen && <YoutubePlayer title={movie.title} />
+              }
+              
               {
                 modalIsOpen &&
                 <MovieImage netflix_id={movie.netflix_id}

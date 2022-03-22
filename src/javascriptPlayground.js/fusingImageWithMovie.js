@@ -73,6 +73,7 @@ for (let i = 0; i < b.length; i++) {
     
 }
 
-console.log(a)
-console.log('asd')
+
+// console.log(a)
+// console.log('asd')
 // 

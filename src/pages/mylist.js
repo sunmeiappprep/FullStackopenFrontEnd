@@ -23,12 +23,12 @@ const Mylist = ({title}) => {
     
 
     return (
-        <YoutubePlayer title={"The dark knight rises"}/>
-        // <React.Fragment>
-        //     <NavbarMain/>
-        //     <div onClick={() => onAppCompSubmit(`${testing} trailer`)} style={{"width":"500px","background-color":"green","height":"500px"}}>asdasdasd</div>
-        //     <ReactPlayer 
-        //     id='topPic' 
+        // <YoutubePlayer title={"The dark knight rises"}/>
+        <React.Fragment>
+        {/* //     <NavbarMain/> */}
+        {/* //     <div onClick={() => onAppCompSubmit(`${testing} trailer`)} style={{"width":"500px","background-color":"green","height":"500px"}}>asdasdasd</div> */}
+        {/* //     <ReactPlayer  */}
+        {/* //     id='topPic' 
         //     url={videoLink}
         //     // url={'https://www.youtube.com/watch?v=VLSG-mOce0c'}
         //     width={"100vw"}
@@ -39,8 +39,9 @@ const Mylist = ({title}) => {
         //     muted={true}
         //     pip={false}
         //     config={{ youtube: { playerVars: { disablekb: 1 } } }}
-        //     />
-        // </React.Fragment>
+        //     /> */}
+        <div>asd</div>
+        </React.Fragment>
     )
        
 }
