@@ -87,6 +87,7 @@ a:hover{
     gap: 1.2rem;
     display: flex;
     align-items: center;
+    margin-right: 10px;
     /* background-color: blue; */
 }
 
