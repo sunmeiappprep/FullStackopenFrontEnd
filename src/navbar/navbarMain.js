@@ -15,7 +15,7 @@ const NavbarMain = ({classStyle}) => {
   const counter = useSelector(state => state.counter)
   const [searchIsOpen,setSearchIsOpen] = useState(false)
   const [y, setY] = useState(window.scrollY);
-  const [nav, setNav] = useState('unscrolledNavBar');
+  const [nav, setNav] = useState('navBarScrolled');
   const searchInput = useRef(null);
   const searchFormContainer = useRef(null);
   // const apiCalled = useSelector()
@@ -75,41 +75,41 @@ const NavbarMain = ({classStyle}) => {
   //if the Y axis is not 0 then it will gray out
   //the y Axis is only limited to the navbar
 
-  const renderDifferentNavbarBasedOnScrollY = (e) => {
-    //Since there is only two options 
-    //I will compare the current classStyle 
-    //If it doesnt not match then rerender
-    //If it does dont
+  // const renderDifferentNavbarBasedOnScrollY = (e) => {
+  //   //Since there is only two options 
+  //   //I will compare the current classStyle 
+  //   //If it doesnt not match then rerender
+  //   //If it does dont
 
-    let current = nav
-    let scrolled = "navBarScrolled"
-    let unscrolled = "unscrolledNavBar"
-    // console.log(nav)
-    if ((e.currentTarget.scrollY !== 0) && current !== scrolled){
-      setNav('navBarScrolled')
-      // console.log("rerenderScroll")
-    }else if ((e.currentTarget.scrollY === 0 && current !== unscrolled)){
-      setNav('unscrolledNavBar')
-      // console.log("rerenderUnscroll")
+  //   let current = nav
+  //   let scrolled = "navBarScrolled"
+  //   let unscrolled = "unscrolledNavBar"
+  //   // console.log(nav)
+  //   if ((e.currentTarget.scrollY !== 0) && current !== scrolled){
+  //     setNav('navBarScrolled')
+  //     // console.log("rerenderScroll")
+  //   }else if ((e.currentTarget.scrollY === 0 && current !== unscrolled)){
+  //     setNav('unscrolledNavBar')
+  //     // console.log("rerenderUnscroll")
 
-    }
-  }
+  //   }
+  // }
 
-  useEffect(() => {
-    //the window is the browswer it self and we have access already
-    //useEffect Run once and set Y to zero
-    //Then add an event listener that takes in a scroll listen and a function
-    //So I assume everytime the function runs it will trigger the useEffect
-    //if it was set it would rerender every second
-    //this time it only rerender if scrolled
-    //the second call back removes the listener
-    // setY(window.scrollY);
-    // console.log(window.scrollY)
-    window.addEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
-    return () => {
-      window.removeEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
-    };
-  }, [renderDifferentNavbarBasedOnScrollY]);
+  // useEffect(() => {
+  //   //the window is the browswer it self and we have access already
+  //   //useEffect Run once and set Y to zero
+  //   //Then add an event listener that takes in a scroll listen and a function
+  //   //So I assume everytime the function runs it will trigger the useEffect
+  //   //if it was set it would rerender every second
+  //   //this time it only rerender if scrolled
+  //   //the second call back removes the listener
+  //   // setY(window.scrollY);
+  //   // console.log(window.scrollY)
+  //   window.addEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
+  //   return () => {
+  //     window.removeEventListener("scroll", renderDifferentNavbarBasedOnScrollY);
+  //   };
+  // }, [renderDifferentNavbarBasedOnScrollY]);
 
   const checkIfUrlIsSelf = (slashRoute) => {
       if (slashRoute[0] !== "h"){
