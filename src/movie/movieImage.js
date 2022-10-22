@@ -6,7 +6,6 @@ const MovieImage = ({netflix_id,title,synopsis,poster}) => {
 
     const [images,setImages] = useState([])
     const [dimension,setDimension] = useState([])
-    const counter = useSelector(state => state.counter)
     const dispatch = useDispatch()
     useEffect(() => {
         var options = {
