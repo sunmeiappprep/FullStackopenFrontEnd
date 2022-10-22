@@ -66,8 +66,7 @@ const MovieMain = ({width}) => {
     const search = useSelector(state => state.search)
     const [movies,setMovies] = useState()
     const dispatch = useDispatch()
-    const absoluteValue = useSelector(state => state.playerHeight.height)
-    const typeOfMedia = useSelector(state => state.typeOfMedia)
+
 
     //this handleonsubmit , 
     // if the search term is inside genrekeysearchvalue we assume that it is a genre
